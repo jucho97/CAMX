@@ -54,7 +54,7 @@ for row in official:
         company_source = manual_source['url']
     extra_sources = [s for s in edit.get('sources', []) if 'mapyourshow.com' not in s['url']]
     independent = bool((company_source and len(external) >= 40) or extra_sources)
-    market_text = ' '.join([row['name'], row['about'], ' '.join(row['categories']), external, edit.get('summary', ''), edit.get('direction', '')])
+    market_text = ' '.join([row['name'], row['about'], ' '.join(row['categories']), external, edit.get('summary', ''), edit.get('direction', ''), edit.get('marketEvidence', '')])
     segment_text = ' '.join([row['name'], row['about'], ' '.join(row['categories']), external, edit.get('summary', '')])
     markets = [label for label, pattern in MARKETS.items() if match(pattern, market_text)]
     segments = [label for label, pattern in SEGMENTS.items() if match(pattern, segment_text)]
