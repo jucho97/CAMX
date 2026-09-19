@@ -14,6 +14,11 @@
   .filter-row.second { margin-top: 6px; }
   .results-head { margin-top: 16px; }
 }
+.filter-label{min-width:48px}
+.badge.uncertain{background:#f6ebe4;color:#8e572f}
+.detail-section small{display:block;color:#87979e;font-size:10px;margin:-3px 0 6px}
+.detail-section p{white-space:pre-line;overflow-wrap:anywhere}
+.detail-panel .links a{overflow-wrap:anywhere}
 @media (max-width: 700px) {
   .intro { padding: 22px 16px 20px; gap: 14px; }
   .intro .eyebrow { margin-bottom: 8px; }
