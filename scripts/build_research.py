@@ -8,13 +8,17 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
 official = json.loads((DATA / 'official-details.json').read_text())
 sites = {x['id']: x for x in json.loads((DATA / 'company-sites.json').read_text())}
+direct_path = DATA / 'recheck-direct.json'
+direct = {x['id']: x for x in json.loads(direct_path.read_text())} if direct_path.exists() else {}
+manual = {x['id']: x for x in json.loads((DATA / 'manual-sources.json').read_text())}
 editorial = {x['name']: x for x in json.loads((DATA / 'editorial.json').read_text())}
 editorial_by_id = {x['id']: x for x in editorial.values() if x.get('id')}
 prior = set(json.loads((DATA / 'prior-attendance-2025.json').read_text()))
 prior_ids = {x['id'] for x in editorial.values() if x.get('id') and x['name'] in prior}
+NON_COMPANY_IDS = {'11587', '11589', '11588'}  # awards and exhibitor lounge
 
 MARKETS = {
-    '항공': r'\baerospace\b|\baircraft\b|\baviation\b|\baeronautic|\bspacecraft\b|\bsatellite\b|\bdefen[sc]e\b|\bairframe\b|항공|우주',
+    '항공·우주': r'\baerospace\b|\baircraft\b|\baviation\b|\baeronautic|\bspacecraft\b|\bsatellite\b|\borbital\b|\bspace industry\b|\bspace launch\b|\bdefen[sc]e\b|\bairframe\b|항공|우주|위성',
     '자동차': r'\bautomotiv|\bvehicle|\bcar\b|\btruck\b|\btransportation\b|\bev\b|\bmobility\b|\bmotorsport|자동차|차량|모빌리티',
     'AI': r'\bartificial intelligence\b|\bmachine learning\b|\bai\b|\bdigital twin\b|인공지능|머신러닝',
 }
@@ -29,10 +33,25 @@ def match(pattern, text):
 
 records = []
 for row in official:
+    if row['id'] in NON_COMPANY_IDS:
+        continue
     site = sites[row['id']]
     edit = editorial_by_id.get(row['id'], editorial.get(row['name'], {}))
     external = site.get('description', '')
     company_source = site.get('url') if site['status'] == 'ok' else None
+    retry = direct.get(row['id'], {})
+    if not external and retry.get('status') == 'found':
+        found = retry['source']
+        description = found['description']
+        if (found['url'].startswith('https://') and
+                re.search(r'composite|aerospace|automotiv|manufactur|fiberglass|fiber|resin|mold|material|engineering|technology|machin|polymer|adhesive|tooling|carbon|reinforc|chemical|testing|analysis|design|process|press|laminat', description, re.I) and
+                not re.search(r'views, opinions|I love|cookie policy|privacy policy|subscribe to', description, re.I)):
+            external = description
+            company_source = found['url']
+    manual_source = manual.get(row['id'])
+    if manual_source and not external:
+        external = manual_source['description']
+        company_source = manual_source['url']
     extra_sources = [s for s in edit.get('sources', []) if 'mapyourshow.com' not in s['url']]
     independent = bool((company_source and len(external) >= 40) or extra_sources)
     market_text = ' '.join([row['name'], row['about'], ' '.join(row['categories']), external, edit.get('summary', ''), edit.get('direction', '')])
@@ -52,11 +71,11 @@ for row in official:
         markets = []
     record = {
         'id': row['id'], 'name': row['name'], 'booth': row['booth'],
-        'website': row['website'] or edit.get('website', ''), 'about': row['about'],
+        'website': row['website'] or (manual_source['url'] if manual_source else '') or edit.get('website', ''), 'about': row['about'],
         'categories': row['categories'],
         'companySource': company_source or (edit.get('website') if extra_sources else None), 'companyTitle': site.get('title', ''),
         'companyDescription': external or (edit.get('summary', '') if extra_sources else ''),
-        'descriptionSource': 'company_site' if external else ('editorial' if extra_sources else 'none'),
+        'descriptionSource': 'editorial' if manual_source else ('company_site' if external else ('editorial' if extra_sources else 'none')),
         'markets': markets, 'segments': segments,
         'verification': status, 'priorAttendance': row['id'] in prior_ids or row['name'] in prior,
         'exhibit2026': edit.get('products2026', '') if edit.get('products2026') else '',

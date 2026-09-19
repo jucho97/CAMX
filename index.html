@@ -4,63 +4,65 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0d2034">
-  <meta name="description" content="CAMX 2026 전시회 업체 탐색. 항공, 자동차, AI 분야와 소재, 공정, 부품으로 참가업체를 검색합니다.">
+  <meta name="description" content="CAMX 2026 전시회 업체 탐색. 항공·우주, 자동차, AI 분야와 소재, 공정, 부품으로 참가업체를 검색합니다.">
   <title>CAMX 2026 전시회 업체 탐색</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <script defer src="i18n.js"></script>
   <script defer src="app.js"></script>
 </head>
 <body>
   <header class="site-header">
-    <div class="brand"><span class="brand-mark" aria-hidden="true">C<span>·</span>X</span><span>CAMX <b>업체 탐색</b></span></div>
-    <div class="header-meta"><span>2026. 9. 22–24</span><span class="header-divider"></span><span>미국 애틀랜타</span><a href="https://www.thecamx.org/" target="_blank" rel="noopener noreferrer">CAMX 공식 사이트 ↗</a></div>
+    <div class="brand"><span class="brand-mark" aria-hidden="true">C<span>·</span>X</span><span>CAMX <b data-i18n="brand">업체 탐색</b></span></div>
+    <div class="header-meta"><div class="language-switch" role="group" aria-label="Language"><button type="button" data-lang="ko" aria-pressed="true">한국어</button><button type="button" data-lang="en" aria-pressed="false">English</button></div><span>2026. 9. 22–24</span><span class="header-divider"></span><span data-i18n="location">미국 애틀랜타</span><a href="https://www.thecamx.org/" target="_blank" rel="noopener noreferrer" data-i18n="officialSite">CAMX 공식 사이트 ↗</a></div>
   </header>
 
   <main>
     <section class="intro" aria-labelledby="page-title">
       <div>
-        <p class="eyebrow">CAMX 2026 · EXHIBITORS</p>
-        <h1 id="page-title">CAMX 2026<br><em>전시회 업체 탐색</em></h1>
-        <p class="intro-copy">참가업체 · 전시 정보 · 회사 자료</p>
+        <p class="eyebrow" data-i18n="coverKicker">CAMX 2026 · 참가업체</p>
+        <h1 id="page-title">CAMX 2026<br><em data-i18n="cover">전시회 업체 탐색</em></h1>
+        <p class="intro-copy" data-i18n="intro">참가업체 · 전시 정보 · 회사 자료</p>
       </div>
-      <div class="event-note" aria-label="전시회 정보">
-        <span class="note-kicker">THE EVENT</span>
+      <div class="event-note" aria-label="전시회 정보" data-i18n-aria="eventInfo">
+        <span class="note-kicker" data-i18n="eventKicker">전시회</span>
         <strong>CAMX 2026</strong>
-        <span>전시 9월 22–24일</span>
+        <span data-i18n="eventDate">전시 9월 22–24일</span>
         <span>Georgia World Congress Center<br>Building C · Atlanta</span>
-        <a href="https://camx2026.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm" target="_blank" rel="noopener noreferrer">공식 출품업체 명단 ↗</a>
+        <a href="https://camx2026.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm" target="_blank" rel="noopener noreferrer" data-i18n="officialDirectory">공식 출품업체 명단 ↗</a>
       </div>
     </section>
 
-    <section class="workspace" aria-label="업체 검색">
+    <section class="workspace" aria-label="업체 검색" data-i18n-aria="searchArea">
       <div class="workspace-head">
-        <div><p class="eyebrow light">RESEARCH DESK</p><h2>참가업체 데이터베이스</h2></div>
-        <p class="snapshot">2026. 9. 19 기준 스냅샷 <span class="snapshot-dot"></span> <span id="snapshot-count">불러오는 중</span></p>
+        <div><p class="eyebrow light" data-i18n="researchKicker">업체 정보</p><h2 data-i18n="database">참가업체 데이터베이스</h2></div>
+        <p class="snapshot"><span data-i18n="snapshot">2026. 9. 19 기준 스냅샷</span> <span class="snapshot-dot"></span> <span id="snapshot-count">불러오는 중</span></p>
       </div>
       <div class="stat-row">
-        <div class="stat"><strong id="stat-all">—</strong><span>2026 공식 명단</span></div>
-        <div class="stat"><strong id="stat-report">—</strong><span>2025 참가 확인</span></div>
-        <div class="stat"><strong id="stat-match">—</strong><span>2026 재확인</span></div>
-        <div class="stat stat-note"><span>회사 사이트와 발표 자료를 함께 확인했습니다. 자료가 없거나 분야를 특정하기 어려운 업체는 별도 테마에 표시합니다.</span></div>
+        <div class="stat"><strong id="stat-all">—</strong><span data-i18n="statAll">2026 업체 항목</span></div>
+        <div class="stat"><strong id="stat-report">—</strong><span data-i18n="statPrior">2025 참관 주요 업체</span></div>
+        <div class="stat"><strong id="stat-match">—</strong><span data-i18n="statMatch">2026 재확인</span></div>
+        <div class="stat stat-note"><span data-i18n="statNote">CAMX 등록 정보와 회사 사이트·발표 자료를 함께 확인했습니다. 근거가 부족한 항목은 ‘기타’에서 볼 수 있습니다.</span></div>
       </div>
 
       <div class="search-area">
-        <label class="search-box" for="search-input"><span class="search-icon" aria-hidden="true">⌕</span><input id="search-input" type="search" autocomplete="off" placeholder="업체명, 제품, 기술 검색"><span class="shortcut">/</span></label>
-        <button id="clear-button" class="clear-button" type="button" hidden>초기화</button>
+        <label class="search-box" for="search-input"><span class="search-icon" aria-hidden="true">⌕</span><input id="search-input" type="search" autocomplete="off" placeholder="업체명, 제품, 기술 검색" data-i18n-placeholder="searchPlaceholder"><span class="shortcut">/</span></label>
+        <button id="clear-button" class="clear-button" type="button" hidden data-i18n="clear">초기화</button>
       </div>
-      <div class="filter-row"><span class="filter-label">대분류</span><div id="market-filters" class="chips" role="group" aria-label="대분류 필터"></div></div>
-      <div class="filter-row second"><span class="filter-label">세부</span><div id="segment-filters" class="chips" role="group" aria-label="세부 분류 필터"></div></div>
-      <div class="filter-row second"><span class="filter-label">구분</span><div class="chips" role="group" aria-label="업체 구분"><button class="chip active" data-scope="all" type="button">전체</button><button class="chip" data-scope="prior" type="button">2025 참가</button><button class="chip" data-scope="current" type="button">2026 참가</button><button class="chip" data-scope="uncertain" type="button">확인 어려움</button></div></div>
+      <div class="filter-row"><span class="filter-label" data-i18n="marketLabel">대분류</span><div id="market-filters" class="chips" role="group" aria-label="대분류 필터" data-i18n-aria="marketFilters"></div></div>
+      <div class="filter-row second"><span class="filter-label" data-i18n="segmentLabel">세부</span><div id="segment-filters" class="chips" role="group" aria-label="세부 필터" data-i18n-aria="segmentFilters"></div></div>
+      <div class="filter-row second"><span class="filter-label" data-i18n="scopeLabel">구분</span><div class="chips" role="group" aria-label="구분 필터" data-i18n-aria="statusFilters"><button class="chip active" data-scope="all" type="button" data-i18n="all">전체</button><button class="chip" data-scope="prior" type="button" data-i18n="prior">2025 참관 주요 업체</button><button class="chip" data-scope="current" type="button" data-i18n="current">2026 참가</button><button class="chip" data-scope="uncertain" type="button" data-i18n="other">기타</button></div></div>
+      <p class="scope-note" data-i18n="scopeNote">회사 링크가 없고 독립 자료로 확인되지 않은 업체는 임의의 검색 결과를 연결하지 않았습니다. 해당 업체는 ‘기타’에서 확인할 수 있습니다.</p>
 
-      <div class="results-head"><p id="result-count" aria-live="polite">업체 목록을 불러오는 중입니다.</p><span>업체를 선택하면 자세히 볼 수 있습니다</span></div>
+      <div class="results-head"><p id="result-count" aria-live="polite">업체 목록을 불러오는 중입니다.</p><span data-i18n="selectHint">업체를 선택하면 자세히 볼 수 있습니다</span></div>
       <div class="results-layout">
         <div class="list-column"><div id="company-list" class="company-list"></div><button id="more-button" class="more-button" type="button" hidden>더 보기</button></div>
         <aside id="detail-panel" class="detail-panel" aria-live="polite"><div class="empty-detail"><span>↗</span><strong>업체를 선택하세요</strong><p>회사 정보와 확인된 출처를 볼 수 있습니다.</p></div></aside>
       </div>
     </section>
 
-    <section class="method" aria-labelledby="method-title"><div><p class="eyebrow">DATA NOTES</p><h2 id="method-title">자료 기준</h2></div><div class="method-grid"><p><b>2026 참가</b><br>CAMX 공식 업체 디렉터리에 등재된 경우입니다.</p><p><b>2025 참가</b><br>제공된 참관 보고서에서 업체명 확인 여부만 표시합니다.</p><p><b>정확한 확인이 어려운 부분</b><br>외부 회사 자료를 확인하지 못했거나 분야 근거가 부족한 업체입니다. 산업 분야를 추정하지 않았습니다.</p></div></section>
+    <section class="method" aria-labelledby="method-title"><div><p class="eyebrow" data-i18n="dataKicker">자료 안내</p><h2 id="method-title" data-i18n="dataNotes">자료 기준</h2></div><div class="method-grid"><p><b data-i18n="current">2026 참가</b><br><span data-i18n="noteCurrent">CAMX 공식 업체 디렉터리에 등재된 경우입니다.</span></p><p><b data-i18n="prior">2025 참관 주요 업체</b><br><span data-i18n="notePrior">제공된 2025 참관 보고서에 기록된 주요 업체만 표시합니다.</span></p><p><b data-i18n="otherInfo">기타 · 정보 부족</b><br><span data-i18n="noteOther">회사 자료가 부족하거나 분야 근거가 분명하지 않은 업체입니다. 산업 분야를 추정하지 않았습니다.</span></p></div></section>
   </main>
-  <footer><span>CAMX 2026 전시회 업체 탐색 · 비공식 자료</span><span><a href="https://camx2026.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm" target="_blank" rel="noopener noreferrer">CAMX 공식 명단</a> · 개별 회사 공개 자료</span></footer>
+  <footer><span data-i18n="footerStart">CAMX 2026 전시회 업체 탐색 · 비공식 자료</span><span><a href="https://camx2026.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm" target="_blank" rel="noopener noreferrer" data-i18n="footerDirectory">CAMX 공식 명단</a> · <span data-i18n="footerSources">개별 회사 공개 자료</span></span></footer>
 </body>
 </html>
