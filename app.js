@@ -27,11 +27,11 @@ function applyStaticLanguage(){
 }
 
 function filtered(){const q=normalize(state.query);return state.records.filter(r=>{
+  if(state.scope==='all'&&!r.id)return false;
   if(state.market!=='전체'&&!r.markets.includes(state.market))return false;
   if(state.segment!=='전체'&&!r.segments.includes(state.segment))return false;
   if(state.scope==='prior'&&!r.priorAttendance)return false;
-  if(state.scope==='current'&&!r.id)return false;
-  if(state.scope==='uncertain'&&r.verification==='확인됨')return false;
+  if(state.scope==='uncertain'&&(!r.id||r.verification==='확인됨'))return false;
   const translated=state.translations[translationKey(r)]||{};
   const words=[r.name,r.about,r.companyDescription,r.exhibit2026,r.direction,...r.categories,...r.markets,...r.segments,...Object.values(translated).flatMap(x=>Object.values(x))];
   return !q||normalize(words.join(' ')).includes(q);
@@ -41,7 +41,7 @@ function renderFilters(){
   $('#segment-filters').innerHTML=SEGMENTS.map(x=>`<button class="chip ${state.segment===x?'active':''}" data-segment="${escapeHtml(x)}" type="button" aria-pressed="${state.segment===x}">${escapeHtml(label(x))}</button>`).join('');
   document.querySelectorAll('[data-scope]').forEach(b=>{const active=b.dataset.scope===state.scope;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))})
 }
-function cardHtml(r){const badges=[r.id?`<span class="badge">${t('attending')}</span>`:`<span class="badge absent">${t('notListed')}</span>`];
+function cardHtml(r){const badges=r.id?[]:[`<span class="badge absent">${t('notListed')}</span>`];
   if(r.priorAttendance)badges.push(`<span class="badge report">${t('priorBadge')}</span>`);
   badges.push(r.verification==='확인됨'?`<span class="badge">${escapeHtml([...r.markets,...r.segments].slice(0,3).map(label).join(' · '))}</span>`:`<span class="badge uncertain">${t('infoMissing')}</span>`);
   const description=profileText(r,'companyDescription')||profileText(r,'about');
@@ -63,8 +63,10 @@ function renderDetail(){const r=state.records.find(x=>keyFor(x)===state.selected
   const verificationText=r.verification==='외부 자료 확인 어려움'?t('siteInsufficient'):r.verification==='분야 확인 어려움'?t('fieldInsufficient'):r.verification==='2026 참가 미확인'?t('priorOnly'):t('verified');
   panel.innerHTML=`<div class="detail-content"><p class="detail-kicker">${t('profileKicker')}</p><div class="detail-title-row"><h3>${escapeHtml(r.name)}</h3><button class="detail-close" type="button" aria-label="${t('closeDetail')}">×</button></div><p class="detail-summary">${escapeHtml(intro)}</p><div class="detail-tags">${tags.map(tag=>`<span>${escapeHtml(tag)}</span>`).join('')}</div><div class="status-line ${known?'':'unlisted'}"><span>${r.id?t('attending'):t('notListed')}</span><span>${escapeHtml(boothText(r.booth))}</span></div>${r.priorAttendance?section(t('prior'),t('priorText')):''}${r.companyDescription?section(t('companyIntro'),profileText(r,'companyDescription'),r.descriptionSource==='company_site'?t('companySiteNote'):t('editorialNote')):''}${r.about?section(t('camxIntro'),profileText(r,'about'),t('camxNote')):''}${r.categories.length?section(t('camxCategories'),r.categories.map(categoryText).join(' · ')):''}${r.exhibit2026?section(t('exhibit'),profileText(r,'exhibit2026')):''}${r.direction?section(t('latest'),profileText(r,'direction'),t('latestNote')):''}${section(t('dataStatus'),verificationText)}<div class="links">${links}</div></div>`;
 }
-function applyFilter(){state.shown=PAGE_SIZE;renderFilters();renderList()}
+function applyFilter(){state.shown=PAGE_SIZE;renderFilters();renderList();if(state.selected&&!filtered().some(r=>keyFor(r)===state.selected))closeDetail()}
 function selectRecord(key,updateHash=true){state.selected=key;document.querySelectorAll('.company-card').forEach(c=>c.classList.toggle('selected',c.dataset.key===key));renderDetail();if(updateHash)history.replaceState(null,'',`#company=${encodeURIComponent(key)}`);if(matchMedia('(max-width: 700px)').matches)$('#detail-panel').scrollTop=0}
+document.querySelectorAll('[data-featured]').forEach(button=>button.addEventListener('click',()=>{const key=button.dataset.featured;const record=state.records.find(r=>keyFor(r)===key);if(!record)return;state.market='전체';state.segment='전체';state.scope='all';state.query=record.name;$('#search-input').value=record.name;applyFilter();selectRecord(key);$('#database').scrollIntoView({behavior:'smooth',block:'start'})}));
+$('#show-prior').addEventListener('click',()=>{state.market='전체';state.segment='전체';state.scope='prior';state.query='';$('#search-input').value='';applyFilter();$('#database').scrollIntoView({behavior:'smooth',block:'start'})});
 function closeDetail(){state.selected=null;renderDetail();document.querySelectorAll('.company-card').forEach(c=>c.classList.remove('selected'));history.replaceState(null,'',location.pathname+location.search)}
 async function loadData(){try{const [response,translations]=await Promise.all([fetch('data/research.json'),fetch('data/translations.json')]);if(!response.ok||!translations.ok)throw Error(t('loadError'));state.records=await response.json();state.translations=await translations.json();
   $('#stat-all').textContent=state.records.filter(r=>r.id).length.toLocaleString(state.lang==='ko'?'ko-KR':'en-US');$('#stat-report').textContent=state.records.filter(r=>r.priorAttendance).length;$('#stat-match').textContent=state.records.filter(r=>r.priorAttendance&&r.id).length;applyStaticLanguage();applyFilter();const key=decodeURIComponent(location.hash.replace(/^#company=/,''));if(key&&state.records.some(r=>keyFor(r)===key))selectRecord(key,false)
