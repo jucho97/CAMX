@@ -4,6 +4,8 @@
 
 첫 화면에는 회사 발표를 근거로 선정한 조사 사례 3건과 2025 CAMX ACE 수상 사례를 표시합니다. 수상 사례인 Electroimpact·Oak Ridge National Laboratory의 복합재 로켓 노즐 공동 연구는 [ORNL 발표](https://www.ornl.gov/organization-news/ornl-composites-research-wins-top-camx-awards)를 근거로 합니다. [CAMX 공식 어워즈 페이지](https://www.thecamx.org/awards/)에 따르면 2026 수상자는 9월 22일 발표 예정이며, 현재 공개된 항목은 후보입니다. 구분 필터의 기본 전체에는 2026 참가 업체만 표시하고, 2025 참관 주요 업체 필터에서는 해당 13곳과 2026 명단에서 찾지 못한 4곳을 함께 볼 수 있습니다.
 
+상단의 복합재 기술 흐름은 회사 공개 자료를 종합한 네 가지 조사 해석입니다. [James Cropper](https://advancedmaterials.jamescropper.com/fr/journal/james-cropper-advanced-materials-and-carbon-fiber-recycling-shortlisted-for-camx-2026-unsurpassed-innovation-award/)와 [Aditya Birla](https://www.abg-am.com/portfolio/chemistry/recyclamine-technology/F008?tab=1)는 순환 소재, [Trimer](https://trimer-tech.com/markets/)와 Electroimpact·ORNL은 제조 속도와 자동화, [Hexcel](https://www.hexcel.com/hexcel-announces-ncamp-qualification-of-hexply-m91-composite-material-system/)은 항공 소재 검증, [Plataine](https://www.plataine.com/news/plataines-next-generation-ai-agents-drive-real-time-decision-optimization-shattering-factory-silos/)은 생산 AI 사례입니다. 업체 전체의 기술 비중을 추정한 결과는 아닙니다.
+
 ## 데이터 범위
 
 - [CAMX 2026 공식 디렉터리](https://camx2026.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm)의 505개 항목을 각각 열어 업체명, 부스, 등록 소개, 제품 분류, 회사 링크를 확인했습니다. `ACE Awards`, `CAMX Awards`, `CAMX Exhibitor Lounge`는 업체가 아닌 시상·편의 항목이므로 검색 목록에서 제외해 2026 항목 502개를 표시합니다. 원본 기록은 보관합니다.
