@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d2034">
+  <meta name="description" content="CAMX 2026 참가업체 검색과 2025 참관 보고서 비교. 소재, 공정, 부품, 항공, 자동차, AI 테마로 업체를 탐색합니다.">
+  <title>CAMX 2026 업체 탐색 | 전시 전 리서치</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">C<span>·</span>X</span><span>CAMX <b>업체 탐색</b></span></div>
+    <div class="header-meta"><span>2026. 9. 22–24</span><span class="header-divider"></span><span>미국 애틀랜타</span><a href="https://www.thecamx.org/" target="_blank" rel="noopener noreferrer">CAMX 공식 사이트 ↗</a></div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">CAMX 2026 · EXHIBITOR INTELLIGENCE</p>
+        <h1 id="page-title">방문 전,<br><em>어떤 업체를 볼지</em> 정리하세요.</h1>
+        <p class="intro-copy">공식 참가 명단과 2025년 참관 보고서를 연결했습니다. 업체명을 찾고, 테마로 좁히고, 전년 전시품과 올해 확인할 항목을 비교할 수 있습니다.</p>
+      </div>
+      <div class="event-note" aria-label="전시회 정보">
+        <span class="note-kicker">THE EVENT</span>
+        <strong>CAMX 2026</strong>
+        <span>전시 9월 22–24일</span>
+        <span>Georgia World Congress Center<br>Building C · Atlanta</span>
+        <a href="https://camx2026.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm" target="_blank" rel="noopener noreferrer">공식 출품업체 명단 ↗</a>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="업체 검색">
+      <div class="workspace-head">
+        <div><p class="eyebrow light">RESEARCH DESK</p><h2>참가업체 데이터베이스</h2></div>
+        <p class="snapshot">2026. 9. 19 기준 스냅샷 <span class="snapshot-dot"></span> <span id="snapshot-count">불러오는 중</span></p>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><strong id="stat-all">—</strong><span>2026 공식 명단</span></div>
+        <div class="stat"><strong id="stat-report">—</strong><span>2025 보고서 업체</span></div>
+        <div class="stat"><strong id="stat-match">—</strong><span>올해 재확인</span></div>
+        <div class="stat stat-note"><span>전체 명단은 업체명과 공식 링크를 제공합니다. 2025년 보고서 업체와 주요 업체에는 제품·동향·비교 정보를 추가했습니다.</span></div>
+      </div>
+
+      <div class="search-area">
+        <label class="search-box" for="search-input"><span class="search-icon" aria-hidden="true">⌕</span><input id="search-input" type="search" autocomplete="off" placeholder="업체명, 소재, 제품, 확인 항목 검색"><span class="shortcut">/</span></label>
+        <button id="clear-button" class="clear-button" type="button" hidden>초기화</button>
+      </div>
+      <div class="filter-row"><span class="filter-label">테마</span><div id="theme-filters" class="chips" role="group" aria-label="테마 필터"></div></div>
+      <div class="filter-row second"><span class="filter-label">구분</span><div class="chips" role="group" aria-label="업체 구분"><button class="chip active" data-scope="all" type="button">전체</button><button class="chip" data-scope="report" type="button">2025 보고서</button><button class="chip" data-scope="current" type="button">2026 참가 확인</button><button class="chip" data-scope="unlisted" type="button">올해 명단 미확인</button></div></div>
+
+      <div class="results-head"><p id="result-count" aria-live="polite">업체 목록을 불러오는 중입니다.</p><span>업체를 선택하면 자세히 볼 수 있습니다</span></div>
+      <div class="results-layout">
+        <div class="list-column"><div id="company-list" class="company-list"></div><button id="more-button" class="more-button" type="button" hidden>더 보기</button></div>
+        <aside id="detail-panel" class="detail-panel" aria-live="polite"><div class="empty-detail"><span>↗</span><strong>업체를 선택하세요</strong><p>전년도 제품, 올해 전시 내용과 출처를 한곳에서 볼 수 있습니다.</p></div></aside>
+      </div>
+    </section>
+
+    <section class="method" aria-labelledby="method-title"><div><p class="eyebrow">HOW TO READ</p><h2 id="method-title">정보를 읽는 기준</h2></div><div class="method-grid"><p><b>2026 참가 확인</b><br>CAMX 공식 업체 디렉터리에 회사가 등재된 경우입니다. 명단은 변경될 수 있습니다.</p><p><b>올해 명단 미확인</b><br>2025년 보고서에 있지만 2026년 9월 19일 공식 목록에서 찾지 못한 경우입니다. 불참 확정은 아닙니다.</p><p><b>전시품과 개발 방향</b><br>올해 공식 업체 소개와 회사 자료를 구분해 요약했습니다. 전시품 미공개 항목은 그렇게 표시했습니다.</p></div></section>
+  </main>
+  <footer><span>CAMX 업체 탐색 · 비공식 리서치 자료</span><span>2025 참관 보고서 및 <a href="https://camx2026.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm" target="_blank" rel="noopener noreferrer">CAMX 공식 명단</a> 기반</span></footer>
+</body>
+</html>
