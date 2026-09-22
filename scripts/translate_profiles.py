@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
 CACHE = DATA / '.translation-cache.json'
-FIELDS = ('about', 'companyDescription', 'exhibit2026', 'direction')
+FIELDS = ('about', 'companyDescription', 'exhibit2026', 'award2026', 'direction')
 HEADERS = {'User-Agent': 'Mozilla/5.0'}
 CATEGORY_KO = {
     'Aerospace':'항공·우주','Glass Fibers':'유리섬유','Thermoplastics':'열가소성 소재',

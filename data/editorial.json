@@ -59,9 +59,10 @@
     "name": "ExxonMobil Proxxima",
     "website": "https://www.proxxima.com/",
     "marketEvidence": "automotive vehicle battery",
-    "summary": "저점도·속경화 복합재 수지 시스템.",
-    "products2026": "공식 소개는 제어 가능한 빠른 경화와 낮은 점도를 강조. Composites One 데모 협력사로도 명시.",
-    "direction": "생산 시간 단축과 경량 부품을 통한 제조 배출 저감에 초점.",
+    "summary": "초저점도와 제어 가능한 급속 경화를 특징으로 하는 2액형 폴리올레핀 열경화성 수지 시스템.",
+    "products2026": "부스 U6에서 Proxxima 수지 시스템을 소개합니다. 회사 자료는 최저 20 cP 수준의 점도, 초 단위부터 시간 단위까지 조절 가능한 경화, 탄소·유리·천연섬유와의 호환성을 제시합니다. 적용 공정은 HP-RTM·VARTM·습식 압축성형·인발·필라멘트 와인딩 등입니다.",
+    "award2026": "2026 CAMX에서 두 건의 후보작에 참여했습니다. Combined Strength 후보작은 Optimum CST와 개발한 압력용기로, 높은 파열압을 활용해 고가 탄소섬유 사용량을 줄이는 설계입니다. Unsurpassed Innovation 후보작은 Fraunhofer ICT와 진행한 배터리 케이스·구조부품용 FRP 설계입니다. HP-RTM 생산 장비와 실물 규모 금형을 구축하고 FEA·Moldflow 해석으로 기존 열경화성 수지 대비 성능, 가공성, 생산 주기를 정량화하는 프로젝트입니다.",
+    "direction": "자동차에서는 배터리 하우징·차체 패널·루프 크로스멤버·범퍼 빔 등 대형 구조부품에 수지의 높은 인성, 내화학성, 소수성, 피로 저항과 부품 통합 가능성을 연결하고 있습니다. 회사는 빠른 주입과 2분 미만 경화 가능성을 제시하며, 제조 사이클과 중량을 함께 낮추는 방향을 강조합니다.",
     "sources": [
       {
         "label": "Composites One 2026 데모",
@@ -74,6 +75,14 @@
       {
         "label": "2026 CAMX 배터리 구조부품 후보",
         "url": "https://www.thecamx.org/awards/"
+      },
+      {
+        "label": "Fraunhofer ICT 배터리 구조부품 프로젝트",
+        "url": "https://www.ict.fraunhofer.de/en/projects/ProxximaTM_resin_systems.html"
+      },
+      {
+        "label": "Proxxima 자동차 적용·성능 자료",
+        "url": "https://www.proxxima.com/en/markets/mobility"
       }
     ],
     "id": "11883"

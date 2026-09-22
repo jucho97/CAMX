@@ -79,6 +79,7 @@ for row in official:
         'markets': markets, 'segments': segments,
         'verification': status, 'priorAttendance': row['id'] in prior_ids or row['name'] in prior,
         'exhibit2026': edit.get('products2026', '') if edit.get('products2026') else '',
+        'award2026': edit.get('award2026', '') if extra_sources else '',
         'direction': edit.get('direction', '') if extra_sources else '',
         'extraSources': extra_sources,
     }
@@ -92,7 +93,7 @@ for name in sorted(prior - matched_prior):
         'about': '', 'categories': [], 'companySource': None,
         'companyTitle': '', 'companyDescription': edit.get('summary', ''), 'descriptionSource': 'editorial',
         'markets': [], 'segments': [], 'verification': '2026 참가 미확인',
-        'priorAttendance': True, 'exhibit2026': '', 'direction': edit.get('direction', ''),
+        'priorAttendance': True, 'exhibit2026': '', 'award2026': '', 'direction': edit.get('direction', ''),
         'extraSources': edit.get('sources', []),
     })
 
