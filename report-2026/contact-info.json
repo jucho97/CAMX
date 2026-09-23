@@ -79,9 +79,10 @@
     "location": [
       "등록 사업장: 미국 Spring, TX (Springwoods Village)"
     ],
-    "person": "",
+    "person": "Jason Lakes",
     "title": "",
-    "camx": "https://camx2026.mapyourshow.com/8_0/exhibitor/exhibitor-details.cfm?exhid=11883"
+    "camx": "https://camx2026.mapyourshow.com/8_0/exhibitor/exhibitor-details.cfm?exhid=11883",
+    "person_source": "user_business_card"
   },
   "mast": {
     "location": [
