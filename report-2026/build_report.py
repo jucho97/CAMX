@@ -159,10 +159,8 @@ for idx,c in enumerate(companies,5):
     profile, website = profiles[c['key']]
     info = contacts[c['key']]
     location = '<br>'.join(html.escape(x) for x in info['location'])
-    person = (f'<a href="{info["camx"]}" target="_blank">{html.escape(info["person"])}</a><small>{html.escape(info["title"])}</small>' if info['person'] else 'CAMX 담당자 미공개')
-    if info.get('person_source') == 'user_business_card':
-        person = html.escape(info['person']) + (f'<small>{html.escape(info["title"])}</small>' if info['title'] else '')
-    contact_block = f'<div><span>대표 담당자</span><b>{person}</b><span class="contact-label">Contact Number · 회사 / 사업장</span><b>{html.escape(info["phone"])}</b></div>' if info['person'] else ''
+    person = html.escape(info['person'])
+    contact_block = f'<div><span>부스 담당자</span><b>{person}</b></div>' if info['person'] else ''
     meta_class = 'meta' if info['person'] else 'meta no-contact'
     followup = f'<div class="takeaway"><b>후속 컨택 포인트</b><p>{html.escape(followups[c["key"]])}</p></div>' if c['key'] in followups else ''
     detail.append(page(f'''<header><span class="section-no">{idx:02}</span><h1>{html.escape(c['name'])}</h1><span class="category">SECTION · {html.escape(section_map[c['key']])}</span></header>
@@ -176,8 +174,8 @@ css='''
 '''
 
 cards = json.loads((ROOT / 'business-card-contacts.json').read_text())
-card_rows = ''.join(f'<tr><td>{html.escape(x["company"])}</td><td>{html.escape(x["name"])}</td><td>{html.escape(x["title"])}</td></tr>' for x in cards)
-contact_appendix = page(f'<header><span class="section-no">22</span><h1>주요 연락 담당자</h1></header><table class="company-list contact-list"><thead><tr><th>업체</th><th>담당자</th><th>직함 · 학위</th></tr></thead><tbody>{card_rows}</tbody></table><footer>CAMX 2026 REPORT · APPENDIX <span>22</span></footer>', 'contact-page')
+card_rows = ''.join(f'<tr><td>{html.escape(x["company"])}</td><td>{html.escape(x["name"])}</td></tr>' for x in cards)
+contact_appendix = page(f'<header><span class="section-no">22</span><h1>주요 부스 담당자</h1></header><table class="company-list contact-list"><thead><tr><th>업체</th><th>부스 담당자</th></tr></thead><tbody>{card_rows}</tbody></table><footer>CAMX 2026 REPORT · APPENDIX <span>22</span></footer>', 'contact-page')
 css += '.contact-list{{margin-top:10mm}}.contact-list td{{font-size:12px;padding:5mm 3mm}}.contact-list th{{font-size:11px;padding:3mm}}.contact-list td:first-child{{text-align:left}}'.replace('{{','{').replace('}}','}')
 doc='''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CAMX 2026 참관 보고서</title><style>'''+css+'''</style></head><body>'''+summary1+summary2+summary3+summary_company+''.join(detail)+contact_appendix+'''</body></html>'''
 (ROOT/'index.html').write_text(doc,encoding='utf-8')
