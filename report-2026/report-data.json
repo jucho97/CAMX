@@ -847,50 +847,6 @@
     "comparison": ""
   },
   {
-    "key": "cotton",
-    "name": "Cotton Incorporated",
-    "section": "수지·컴파운드·중간재",
-    "product": "면섬유 강화 열가소성 복합재",
-    "profile": "Cotton Incorporated는 면섬유의 용도를 의류 밖의 산업재로 확장하는 연구·기술 지원 조직이다. CAMX에서는 면섬유를 열가소성 수지 보강재로 사용한 자동차 내장용 성형품을 제시했다.",
-    "website": "https://cottonworks.com/product-innovation/advanced-materials/",
-    "location": [
-      "등록 사업장: 미국 Cary, NC"
-    ],
-    "person": "Neil Demarse",
-    "bullets": [
-      "전시품은 면섬유와 PP를 조합해 압축성형한 트레이·판재·자동차 내장 형상 샘플로 구성.",
-      "면섬유의 낮은 밀도와 열전도도, 촉감, 재생 가능한 원료라는 특성을 활용하며 일반적인 열가소성 성형 공정 적용 가능성을 제시.",
-      "도어트림·트렁크 라이너·패키지 트레이 등 비구조 내장재가 대표 적용처이며, 흡습·냄새·치수 안정성과 장기 내구가 평가 항목."
-    ],
-    "takeaways": [],
-    "followup": "",
-    "photos": [
-      {
-        "src": "assets/cotton-1.jpg",
-        "caption": "면섬유 강화 열가소성 압축성형 트레이",
-        "imageRatio": 0.75,
-        "frame": [
-          0,
-          0.045,
-          1,
-          0.83
-        ]
-      },
-      {
-        "src": "assets/cotton-2.jpg",
-        "caption": "면섬유–PP 내장용 성형 패널",
-        "imageRatio": 0.75,
-        "frame": [
-          0.02,
-          0.235,
-          0.93,
-          0.68
-        ]
-      }
-    ],
-    "comparison": ""
-  },
-  {
     "key": "exxon",
     "name": "ExxonMobil · Proxxima™",
     "section": "수지·컴파운드·중간재",
