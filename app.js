@@ -48,7 +48,9 @@ function cardHtml(r){const badges=r.id?[]:[`<span class="badge absent">${t('notL
   if(r.priorAttendance)badges.push(`<span class="badge report">${t('priorBadge')}</span>`);
   badges.push(r.verification==='확인됨'?`<span class="badge">${escapeHtml([...r.markets,...r.segments].slice(0,3).map(label).join(' · '))}</span>`:`<span class="badge uncertain">${t('infoMissing')}</span>`);
   const description=profileText(r,'companyDescription')||profileText(r,'about');
-  return `<button type="button" class="company-card ${state.selected===keyFor(r)?'selected':''}" data-key="${escapeHtml(keyFor(r))}" aria-label="${escapeHtml(r.name)} ${t('viewDetails')}"><span class="card-top"><span class="card-name">${escapeHtml(r.name)}</span>${r.booth?`<span class="card-booth">${escapeHtml(r.booth.replace(/^Building C, Level 1 — /,''))}</span>`:''}</span><span class="card-meta">${badges.join('')}</span>${description?`<span class="card-summary">${escapeHtml(description.slice(0,170))}${description.length>170?'…':''}</span>`:''}</button>`
+  const products=r.categories.slice(0,3).map(category=>`<span>${escapeHtml(categoryText(category))}</span>`).join('');
+  const saved=state.favorites.has(keyFor(r));
+  return `<button type="button" class="company-card ${state.selected===keyFor(r)?'selected':''}" data-key="${escapeHtml(keyFor(r))}" aria-label="${escapeHtml(r.name)} ${t('viewDetails')}"><span class="card-top"><span class="card-name">${escapeHtml(r.name)}</span><span class="card-location">${saved?'<i aria-hidden="true">★</i>':''}${r.booth?`<span class="card-booth"><small>${t('boothLabel')}</small>${escapeHtml(r.booth.replace(/^Building C, Level 1 — /,''))}</span>`:''}</span></span><span class="card-meta">${badges.join('')}</span>${products?`<span class="card-products">${products}</span>`:''}${description?`<span class="card-summary">${escapeHtml(description.slice(0,170))}${description.length>170?'…':''}</span>`:''}</button>`
 }
 function renderList(){const rows=filtered();$('#result-count').textContent=t('resultCount',rows.length);
   $('#company-list').innerHTML=rows.length?rows.slice(0,state.shown).map(cardHtml).join(''):`<div class="no-results">${t('noResults')}</div>`;
