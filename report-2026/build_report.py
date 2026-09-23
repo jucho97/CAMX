@@ -24,19 +24,15 @@ def sample_html(p):
  return f'<figure><svg class="sample-photo" width="{vw}" height="{vh}" viewBox="{view}" role="img" aria-label="{e(p["caption"])}"><title>{e(p["caption"])}</title>{image}</svg><figcaption>{e(p["caption"])}</figcaption></figure>'
 
 def foot(n):return f'<footer>CAMX 2026 REPORT · 1차 최종본 <span>{n:02}</span></footer>'
-representatives=[
-('난연·내화 소재',['kelvinite','nabaltec','pyrophobic'],'팽창성 PP 시트·복합재, 세라믹화 첨가제 및 팽창성 성형 수지로 화염 차단층을 형성하고 배터리 열폭주 전파를 억제하는 방향.'),
-('EMI·RF 기능성 소재',['stm','mast'],'STM은 유연한 차폐 시트를 100% 미국에서 생산. MAST는 주파수별 RF 흡수·차폐 소재를 맞춤 설계.'),
-('섬유·직물·프리폼',['ngf','saertex','concordia'],'고열전도 피치계 섬유, 북미 생산 NCF, 열가소성 혼합 원사로 소재·공급 방식 다양화.'),
-('수지·컴파운드·중간재',['avient','trimer','exxon'],'PET 내열 향상과 SMC용 수지 확대. 저점도 수지는 함침과 경화 제어를 결합해 성형 공정 개선.'),
-('성형 공정·설비',['cannon','andritz','magestic'],'주입·압축성형 설비와 적층 시뮬레이션을 통해 성형 재현성과 작업 효율을 개선.'),
-('접착·조립',['ll','parson'],'박막 접착재로 층간 손상을 억제하고, 고온용 접착제로 GF·금속 이종재 접합에 대응.'),
-('구조부품·항공우주 응용',['rebuild','toray'],'연속 GF/PP 일체형 부품과 CFRP 구조 응용. 소재 공급부터 성형·후공정까지 연계하는 방향.')]
-D={c['key']:c for c in C}
-rows=''.join('<tr><td>'+e(s)+'</td><td>'+'<br>'.join(f'<a href="#company-{k}">{e(D[k]["name"])}</a>' for k in keys)+'</td><td>'+e(desc)+'</td></tr>' for s,keys,desc in representatives)
-summary=page('<header><span class="section-no">2</span><h1>주요 전시 업체 요약</h1></header><p class="subhead">분야별 대표 업체 및 주요 확인 내용 · 상세 내용은 유첨 참조</p><table class="summary-table"><thead><tr><th>분야</th><th>대표 업체</th><th>주요 내용</th></tr></thead><tbody>'+rows+'</tbody></table><p class="subhead">James Cropper의 기능성 베일·UNIMAT 수상 기술은 난연·내화 소재 유첨에 함께 정리.</p>'+foot(3))
+rows=[]
+for theme,section in enumerate(sections,1):
+ members=[(i,c) for i,c in enumerate(C,1) if c['section']==section]
+ links=''.join(f'<a href="#company-{c["key"]}"><span>{i:02}</span>{e(c["name"])}</a>' for i,c in members)
+ rows.append(f'<tr><th scope="row"><b class="theme-{theme}">{e(section)}</b><small>{len(members)}개 업체</small></th><td><div class="overview-companies">{links}</div></td></tr>')
+summary=page('<div class="legacy-head"><span></span><b>2</b><h1>주요 전시 업체 요약</h1></div><p class="overview-intro">총 28개 업체 · 7개 분야<span>업체명을 선택하면 상세 페이지로 이동</span></p><table class="overview-table"><thead><tr><th>분야</th><th>참관 업체</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table>'+foot(3),'company-overview')
 out=[F['summary1'],F['summary2'],summary]
-for n,c in enumerate(C,4):
+for company_no,c in enumerate(C,1):
+ n=company_no+3
  photos=c['photos']; take=c.get('takeaways',[]); follow=c.get('followup','');compare=c.get('comparison','')
  dense=bool(compare or len(c['bullets'])>=5)
  cls='detail-page'+(' dense' if dense else '')+(' has-takeaway' if take else '')+(' has-followup' if follow else '')+(' no-photos' if not photos else '')+(' has-card' if c.get('card') else '')+(' text-only' if c['key']=='nabaltec' else '')
@@ -53,7 +49,7 @@ for n,c in enumerate(C,4):
   visual=f'<aside class="discussion-panel"><h3>{e(focus[0])}</h3><p>{e(focus[1])}</p><small>주요 상담 내용</small></aside>'
  takeaway='<div class="takeaway"><b>Take Away</b><ul>'+''.join('<li>'+e(t)+'</li>' for t in take)+'</ul></div>' if take else ''
  followup=f'<div class="followup"><b>후속 컨택 포인트</b><p>{e(follow)}</p></div>' if follow else ''
- out.append(page(f'<header><span class="section-no">{n:02}</span><h1>{e(c["name"])}</h1><span class="category theme-{sections.index(c["section"])+1}"><small>SECTION</small>{e(c["section"])}</span></header>'+meta+'<div class="detail-grid">'+text+visual+'</div>'+takeaway+followup+foot(n),cls,'company-'+c['key']))
+ out.append(page(f'<header><span class="section-no">{company_no:02}</span><h1>{e(c["name"])}</h1><span class="category theme-{sections.index(c["section"])+1}"><small>SECTION</small>{e(c["section"])}</span></header>'+meta+'<div class="detail-grid">'+text+visual+'</div>'+takeaway+followup+foot(n),cls,'company-'+c['key']))
 (R/'index.html').write_text('<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CAMX 2026 참관 보고서 · 1차 최종본</title><link rel="stylesheet" href="report.css"></head><body>'+''.join(out)+CARD_SCRIPT+'</body></html>')
 print(f'Built {len(out)} pages / {len(C)} companies')
 
