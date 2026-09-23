@@ -54,7 +54,8 @@
     "phone": "+1 847-278-1170",
     "person": "Hidetoshi Funatsu",
     "title": "President",
-    "camx": "https://camx2026.mapyourshow.com/8_0/exhibitor/exhibitor-details.cfm?exhid=140913"
+    "camx": "https://camx2026.mapyourshow.com/8_0/exhibitor/exhibitor-details.cfm?exhid=140913",
+    "person_source": "user_business_card"
   },
   "parson": {
     "location": [
@@ -107,9 +108,10 @@
       "생산 거점: 헝가리"
     ],
     "phone": "+65 6513-8802",
-    "person": "",
+    "person": "David Kneale · Kai Fong",
     "title": "",
-    "camx": "https://camx2026.mapyourshow.com/8_0/exhibitor/exhibitor-details.cfm?exhid=11997"
+    "camx": "https://camx2026.mapyourshow.com/8_0/exhibitor/exhibitor-details.cfm?exhid=11997",
+    "person_source": "user_business_card"
   },
   "andritz": {
     "location": [
@@ -117,18 +119,20 @@
       "미국 사업장: Canton, MI"
     ],
     "phone": "+1 734-207-7200",
-    "person": "Theodore Patchel",
-    "title": "Hydraulic Sales Manager",
-    "camx": "https://camx2026.mapyourshow.com/8_0/exhibitor/exhibitor-details.cfm?exhid=9943"
+    "person": "Paul Thom",
+    "title": "M.Sc.",
+    "camx": "https://camx2026.mapyourshow.com/8_0/exhibitor/exhibitor-details.cfm?exhid=9943",
+    "person_source": "user_business_card"
   },
   "color": {
     "location": [
       "등록 사업장: 미국 Butler, IN"
     ],
     "phone": "+1 800-643-3323",
-    "person": "Kyle Skaggs",
-    "title": "President",
-    "camx": "https://camx2026.mapyourshow.com/8_0/exhibitor/exhibitor-details.cfm?exhid=140952"
+    "person": "Christine Gillian",
+    "title": "",
+    "camx": "https://camx2026.mapyourshow.com/8_0/exhibitor/exhibitor-details.cfm?exhid=140952",
+    "person_source": "user_business_card"
   },
   "cropper": {
     "location": [
