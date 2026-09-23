@@ -38,3 +38,6 @@ html,body,.page,.template-page,.implications-body,button,h1,h2,h3,p,li,span,b,st
 .overview-companies a{display:flex;align-items:baseline;gap:2mm;color:#302c29;text-decoration:none;font-size:12px;line-height:1.65;white-space:nowrap}
 .overview-companies a span{color:#b56a3f;font-size:10px;font-weight:600;min-width:5mm}
 .overview-companies a:hover{color:#a3552d;text-decoration:underline}
+
+#company-angeloni .photos.count-2{grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr);gap:3mm}
+#company-angeloni .photos figcaption{white-space:pre-line;font-size:10px}

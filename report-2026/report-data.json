@@ -773,13 +773,24 @@
     "photos": [
       {
         "src": "assets/day2/IMG_0480.jpeg",
-        "caption": "탄소섬유·구리선 하이브리드 직물 스와치",
+        "caption": "금속·카본 하이브리드 직물\n구리선 Red · Green · Blue",
         "imageRatio": 0.75,
         "frame": [
-          0.01,
-          0,
-          0.965,
-          0.96
+          0.32,
+          0.135,
+          0.56,
+          0.76
+        ]
+      },
+      {
+        "src": "assets/day2/IMG_0479.jpeg",
+        "caption": "카본 디자인 직물\nD15 · V610 · 133 직조 패턴",
+        "imageRatio": 0.75,
+        "frame": [
+          0.278,
+          0.162,
+          0.55,
+          0.76
         ]
       }
     ],
