@@ -24,7 +24,7 @@ def sample_html(p):
 
 def foot(n):return f'<footer>CAMX 2026 REPORT · APPENDIX <span>{n:02}</span></footer>'
 representatives=[
-('난연·내화 소재',['kelvinite','nabaltec','pyrophobic'],'팽창·세라믹화 장벽으로 화염 차단. Kelvinite는 함침 개선, Nabaltec은 PP용 시험자료와 샘플 확보가 후속 과제.'),
+('난연·내화 소재',['kelvinite','nabaltec','pyrophobic'],'팽창성 PP 시트·복합재, 세라믹화 첨가제 및 팽창성 성형 수지로 화염 차단층을 형성하고 배터리 열폭주 전파를 억제하는 방향.'),
 ('EMI·RF 기능성 소재',['stm','mast'],'STM은 유연한 차폐 시트를 100% 미국에서 생산. MAST는 주파수별 RF 흡수·차폐 소재를 맞춤 설계.'),
 ('섬유·직물·프리폼',['ngf','saertex','concordia'],'고열전도 피치계 섬유, 북미 생산 NCF, 열가소성 혼합 원사로 소재·공급 방식 다양화.'),
 ('수지·컴파운드·중간재',['avient','trimer','exxon'],'PET 내열 향상과 SMC용 수지 확대. 저점도 수지는 함침과 경화 제어를 결합해 성형 공정 개선.'),
@@ -38,15 +38,17 @@ out=[F['summary1'],F['summary2'],summary]
 for n,c in enumerate(C,4):
  photos=c['photos']; take=c.get('takeaways',[]); follow=c.get('followup','');compare=c.get('comparison','')
  dense=bool(compare or len(c['bullets'])>=5)
- cls='detail-page'+(' dense' if dense else '')+(' has-takeaway' if take else '')+(' has-followup' if follow else '')+(' no-photos' if not photos else '')+(' has-card' if c.get('card') else '')
+ cls='detail-page'+(' dense' if dense else '')+(' has-takeaway' if take else '')+(' has-followup' if follow else '')+(' no-photos' if not photos else '')+(' has-card' if c.get('card') else '')+(' text-only' if c['key']=='nabaltec' else '')
  contact=('<div class="card-meta"><span>부스 담당자</span>'+card_html(c['card'],c['key'])+'</div>') if c.get('card') else (f'<div><span>부스 담당자</span><b>{e(c["person"])}</b></div>' if c.get('person') else '')
  meta=f'<div class="meta {"no-contact" if not contact else ""}"><div><span>본사 · 사업장 위치</span><b>'+ '<br>'.join(e(x) for x in c['location'])+'</b></div>'+contact+f'<div><span>핵심 전시품</span><b>{e(c["product"])}</b><span class="contact-label">회사 홈페이지</span><b><a href="{e(c["website"])}">{e(c["website"].split("//")[-1].split("/")[0])}</a></b></div></div>'
  comparison=f'<div class="comparison"><b>2025년 대비 확인된 변화</b>{e(compare)}</div>' if compare else ''
  text='<article><h2>업체 개요</h2><p class="company-profile">'+e(c['profile'])+'</p><h2>전시품 및 기술 내용</h2><ul>'+''.join('<li>'+e(x)+'</li>' for x in c['bullets'])+'</ul>'+comparison+'</article>'
  if photos:
   visual=f'<div class="photos count-{len(photos)}">'+''.join(sample_html(p) for p in photos)+'</div>'
+ elif c['key']=='nabaltec':
+  visual=''
  else:
-  focus={'nabaltec':('검토 순서','PP용 시험 조건·배합 확인 → 기술 미팅 및 NDA → 샘플 평가. 인계 난연제와의 임의 병용보다 권장 처방 기준으로 출발.'),'saertex':('공급·적용 확인','북미 생산 NCF와 설계 지원은 확인. 현대·기아 적용 이력은 지역별 공급망을 구분해 추가 확인.'),'magestic':('적용 범위','형상 추종·주름·장비 경로를 검토하는 도구. 구조 강도 해석을 대체하는 기능으로 보지 않고 실제 적층 형상으로 검증.')}[c['key']]
+  focus={'saertex':('공급·적용 확인','북미 생산 NCF와 설계 지원은 확인. 현대·기아 적용 이력은 지역별 공급망을 구분해 추가 확인.'),'magestic':('적용 범위','형상 추종·주름·장비 경로를 검토하는 도구. 구조 강도 해석을 대체하는 기능으로 보지 않고 실제 적층 형상으로 검증.')}[c['key']]
   visual=f'<aside class="discussion-panel"><h3>{e(focus[0])}</h3><p>{e(focus[1])}</p><small>주요 상담 내용</small></aside>'
  takeaway='<div class="takeaway"><b>Take Away</b><ul>'+''.join('<li>'+e(t)+'</li>' for t in take)+'</ul></div>' if take else ''
  followup=f'<div class="followup"><b>후속 컨택 포인트</b><p>{e(follow)}</p></div>' if follow else ''
