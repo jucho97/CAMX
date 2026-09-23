@@ -46,3 +46,15 @@
 - 원본 사진을 보존하고 HTML/SVG 표시 영역과 방향만 조정. 명함은 원본 이미지에 CSS 원근 보정 적용. 사진의 내용이나 텍스트를 생성하지 않음.
 
 - NGF 중국 시장 의견 추가: 인터뷰 03:34–04:20 PAN 중심 개발 및 피치계 특수 용도, 05:48–06:40 드론 가격 경쟁 관련 답변을 담당자 견해로 요약. 중국의 피치계 생산 부재나 시장 성장률을 사실로 단정하지 않음.
+
+## 1차 최종본 점검 · 2026-09-23
+- 총 31페이지 / 28개 업체. AOC·Cotton Incorporated·Airtech 제외 유지.
+- 모든 사진의 SVG 고유 비율을 지정하고 사진/캡션을 하나의 묶음으로 배치. 표시 사진 40장의 캡션 간격·페이지 경계 점검.
+- Noto Sans KR 가변 글꼴을 로컬 WOFF2로 포함해 한글·영문 서체 통일. OFL 라이선스 동봉. 제목 앞 숫자는 18px로 확대.
+- TECNOFIRE 사진은 팽창 전후 비교가 아닌 E20MI / E11MIL 등급별 내화 매트. 사진 라벨에 따라 캡션 수정.
+- L&L: 현장 화면과 공식 T-Link Film Line Card 대조 결과 L-FS20 표기를 L-F620으로 수정. 손에 든 필름은 T-Link 박막 필름으로만 표기(외관으로 개별 등급 단정하지 않음). https://www.llproducts.com/wp-content/uploads/2025/01/t-link_-_film_-_line_card_01.pdf
+- L&L 녹음 00:18–00:55: interleaf 배치 및 충격 후 압축강도(CAI) 약 66% 향상. ASTM D2344 층간 전단 비교와 별도 결과로 구분. 투명 필름 사진 추가.
+- Re:Build의 GFPP 구조에 혼용되었던 CFRTP 약어를 GFRTP로 수정.
+- MAST의 MF11 주파수 범위를 전 제품 공통 범위로 해석하지 않도록 MF11-0001-00의 12–40 GHz / 9.53mm 사양으로 한정. Tuned-frequency의 약20dB는 설계 주파수에서의 반사 감쇠로 수정. https://www.masttechnologies.com/products/page/5/ ; https://www.masttechnologies.com/products/defense/rf-absorbers/tuned-frequency-16-ghz-2/
+- Parson 고온 접착 수치는 담당자 설명임을 명시하고 등급·시험 조건별 확인 필요로 정리.
+- Nabaltec·Color Master 후속 내용은 적용 가능한 제품·샘플 정보 수령 및 필요 시 연락으로 수정. Kelvinite·Cannon 후속 컨택 및 시사점의 자사 후속 방향 삭제 유지.

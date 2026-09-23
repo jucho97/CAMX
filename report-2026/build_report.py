@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 """Build the static CAMX report from reviewed content and original photo assets."""
 from pathlib import Path
-import html,json
+import html,json,hashlib
 from card_layout import card_html,CARD_SCRIPT
 R=Path(__file__).resolve().parent
 e=html.escape
 C=json.loads((R/'report-data.json').read_text())
 F=json.loads((R/'frontmatter.json').read_text())
+css_version=hashlib.sha256((R/'report.css').read_bytes()).hexdigest()[:10]
 sections=list(dict.fromkeys(c['section'] for c in C))
 def page(s,cls='',id=''):return f'<section class="page {cls}" id="{id}">{s}</section>'
 
@@ -20,9 +21,9 @@ def sample_html(p):
   image=f'<g transform="translate(0 {w*1000}) rotate(-90) translate({-x*1000} {-y*ih})">{image}</g>'
  vx,vy,vw,vh=view.split();clip='frame-'+Path(p['src']).stem
  image=f'<defs><clipPath id="{clip}"><rect x="{vx}" y="{vy}" width="{vw}" height="{vh}"/></clipPath></defs><g clip-path="url(#{clip})">{image}</g>'
- return f'<figure><svg class="sample-photo" viewBox="{view}" role="img" aria-label="{e(p["caption"])}"><title>{e(p["caption"])}</title>{image}</svg><figcaption>{e(p["caption"])}</figcaption></figure>'
+ return f'<figure><svg class="sample-photo" width="{vw}" height="{vh}" viewBox="{view}" role="img" aria-label="{e(p["caption"])}"><title>{e(p["caption"])}</title>{image}</svg><figcaption>{e(p["caption"])}</figcaption></figure>'
 
-def foot(n):return f'<footer>CAMX 2026 REPORT · APPENDIX <span>{n:02}</span></footer>'
+def foot(n):return f'<footer>CAMX 2026 REPORT · 1차 최종본 <span>{n:02}</span></footer>'
 representatives=[
 ('난연·내화 소재',['kelvinite','nabaltec','pyrophobic'],'팽창성 PP 시트·복합재, 세라믹화 첨가제 및 팽창성 성형 수지로 화염 차단층을 형성하고 배터리 열폭주 전파를 억제하는 방향.'),
 ('EMI·RF 기능성 소재',['stm','mast'],'STM은 유연한 차폐 시트를 100% 미국에서 생산. MAST는 주파수별 RF 흡수·차폐 소재를 맞춤 설계.'),
@@ -53,10 +54,15 @@ for n,c in enumerate(C,4):
  takeaway='<div class="takeaway"><b>Take Away</b><ul>'+''.join('<li>'+e(t)+'</li>' for t in take)+'</ul></div>' if take else ''
  followup=f'<div class="followup"><b>후속 컨택 포인트</b><p>{e(follow)}</p></div>' if follow else ''
  out.append(page(f'<header><span class="section-no">{n:02}</span><h1>{e(c["name"])}</h1><span class="category theme-{sections.index(c["section"])+1}"><small>SECTION</small>{e(c["section"])}</span></header>'+meta+'<div class="detail-grid">'+text+visual+'</div>'+takeaway+followup+foot(n),cls,'company-'+c['key']))
-(R/'index.html').write_text('<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CAMX 2026 참관 보고서</title><link rel="stylesheet" href="report.css"></head><body>'+''.join(out)+CARD_SCRIPT+'</body></html>')
+(R/'index.html').write_text('<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CAMX 2026 참관 보고서 · 1차 최종본</title><link rel="stylesheet" href="report.css"></head><body>'+''.join(out)+CARD_SCRIPT+'</body></html>')
 print(f'Built {len(out)} pages / {len(C)} companies')
 
 cards=json.loads((R/'business-cards.json').read_text())
 names={c['key']:c['name'] for c in C};names.update(cfr='Carbon Fiber Recycling',avanco='AVANCO')
 gallery=''.join('<article id="'+e(k)+'"><h2>'+e(names[k])+'</h2>'+card_html(card,k)+'</article>' for k,card in cards.items())
 (R/'cards.html').write_text('<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CAMX 2026 명함 모음</title><link rel="stylesheet" href="report.css"></head><body><main class="card-gallery">'+gallery+'</main>'+CARD_SCRIPT+'</body></html>')
+
+# Cache-bust the stylesheet so published corrections appear immediately.
+for filename in ['index.html','cards.html']:
+ p=R/filename
+ p.write_text(p.read_text().replace('href="report.css"',f'href="report.css?v={css_version}"'))
