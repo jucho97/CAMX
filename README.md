@@ -6,7 +6,7 @@
 
 기술 동향 카드의 업체명을 누르면 아래 데이터베이스에서 해당 업체의 조사 내용을 엽니다. 외부 발표 자료 링크는 업체 상세 화면에 보관합니다.
 
-CAMX 공식 앱의 탐색 구조를 참고해 공식 앱·프로그램·전시장 지도·Awards 바로가기를 추가했습니다. 업체 상세에서 관심 업체를 저장하고 **관심 업체** 필터로 다시 볼 수 있으며, 선택 내용은 해당 브라우저에 저장됩니다.
+CAMX 공식 앱의 업체 탐색 구성을 참고해 부스, 제품 분류, 등록 소개와 조사 내용을 한 화면에서 빠르게 읽도록 상세 정보 순서를 정리했습니다. 업체 상세에서 관심 업체를 저장하고 **관심 업체** 필터로 다시 볼 수 있으며, 선택 내용은 해당 브라우저에 저장됩니다. 공식 앱 다운로드 링크는 표시하지 않습니다.
 
 자사 연관 사례로는 [L&L Products](https://www.llproducts.com/articles/addressing-ev-structural-demands-with-advanced-composites/)의 전기차 구조 보강, [Avient](https://www.avient.com/news/avient-accelerates-composite-design-new-simulation-ready-material-cards-and-enhanced-polystrand-thermoplastic-tapes-camx-2026)의 열가소성 테이프·물성 카드, [Trimer](https://trimer-tech.com/markets/)의 빠른 성형 수지를 소개합니다. 2026 Awards에서는 [공식 후보 목록](https://www.thecamx.org/awards/)을 기준으로 ExxonMobil의 압력용기와 배터리 구조부품 후보 기술, L&L Products의 열가소성 접착제, James Cropper의 정렬 재활용 탄소섬유를 정리했습니다. 수상 결과가 공식 페이지에 공개되기 전까지 후보로 표시합니다. ExxonMobil 상세에는 [Fraunhofer ICT 프로젝트](https://www.ict.fraunhofer.de/en/projects/ProxximaTM_resin_systems.html)와 [Proxxima 자동차 적용 자료](https://www.proxxima.com/en/markets/mobility)를 추가했습니다.
 
