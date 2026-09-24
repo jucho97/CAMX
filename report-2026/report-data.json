@@ -872,7 +872,7 @@
       "배터리 구조부품 개발은 Fraunhofer ICT와 협업."
     ],
     "takeaways": [
-      "초저점도 수지와 경화 제어를 결합해 함침성과 생산 속도의 동시 개선을 추진. 배터리 하우징 적용에서는 수지 경화시간보다 실제 전체 성형 사이클의 확인이 필요."
+      "초저점도 수지와 경화 제어를 결합해 함침성과 생산 속도의 동시 개선을 추진."
     ],
     "followup": "Jason Lakes — 차주 관련 기술 미팅 예정.",
     "photos": [
@@ -889,12 +889,12 @@
       },
       {
         "src": "assets/exxon-2.jpg",
-        "caption": "동일 배터리 하우징 · 옆면",
+        "caption": "옆면",
         "imageRatio": 0.75
       },
       {
         "src": "assets/exxon-3.jpg",
-        "caption": "동일 배터리 하우징 · 뒷면",
+        "caption": "뒷면",
         "imageRatio": 0.75,
         "frame": [
           0.025,
