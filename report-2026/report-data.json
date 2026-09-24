@@ -1205,7 +1205,7 @@
   },
   {
     "key": "andritz",
-    "name": "ANDRITZ Schuler",
+    "name": "ANDRITZ",
     "section": "성형 공정·설비",
     "product": "SMC·GMT·RTM 압축성형 프레스",
     "profile": "프레스 및 자동화 생산라인 공급 업체. 복합재 분야에서는 SMC·GMT·RTM용 유압 프레스와 공정 추적 시스템을 일괄 공급.",
@@ -1226,7 +1226,7 @@
     "photos": [
       {
         "src": "assets/andritz-1.jpg",
-        "caption": "Schuler 자사 성형 공정으로 제작한 복합재 샘플",
+        "caption": "ANDRITZ의 성형 공정으로 제작한 복합재 샘플",
         "imageRatio": 0.75,
         "frame": [
           0.025,
