@@ -1,38 +1,5 @@
 [
   {
-    "key": "krempel",
-    "name": "Krempel",
-    "section": "기능성 소재",
-    "product": "KremGuard 저연·저독성 프리프레그",
-    "profile": "전기 절연재와 고기능 복합재를 공급하는 독일 소재 기업. KremGuard 제품군을 중심으로 모빌리티용 난연 구조재와 배터리 보호 부품용 소재를 전개.",
-    "website": "https://krempel.com/en/products/composites/kremguard",
-    "location": [
-      "등록 사업장: 독일 Vaihingen an der Enz"
-    ],
-    "person": "Thomas Gilke",
-    "bullets": [
-      "KremGuard는 에폭시계 프리프레그로 할로겐·페놀·포름알데히드 없이 화염 확산·발연·독성(FST) 요구에 대응하도록 설계.",
-      "FAR 25, AITM, EN 45545 HL3 및 UL 94 V-0 등 운송 분야 난연 요구에 대응하는 제품군을 보유. 적용 규격은 제품 등급별로 구분.",
-      "허니컴 패널, 전기 절연 구조재, 철도·항공 내장재와 배터리 하우징처럼 구조 성능과 화재 안전을 함께 요구하는 부품에 적용."
-    ],
-    "takeaways": [],
-    "followup": "",
-    "photos": [
-      {
-        "src": "assets/krempel-1.jpg",
-        "caption": "KremGuard 난연 복합재 성형 샘플",
-        "imageRatio": 0.75,
-        "frame": [
-          0.11,
-          0.35,
-          0.79,
-          0.65
-        ]
-      }
-    ],
-    "comparison": ""
-  },
-  {
     "key": "kelvinite",
     "name": "Highland · Kelvinite",
     "section": "기능성 소재",

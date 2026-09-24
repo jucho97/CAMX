@@ -32,7 +32,7 @@ for theme,section in enumerate(sections,1):
  additional=[c for c in EXTRA if c['section']==section]
  links+=''.join(f'<div class="overview-unlinked"><span>—</span>{e(c["name"])}</div>' for c in additional)
  rows.append(f'<tr><th scope="row"><b class="theme-{theme}">{e(section)}</b><small>{len(members)+len(additional)}개 업체</small></th><td><div class="overview-companies">{links}</div></td></tr>')
-summary=page('<div class="legacy-head"><span></span><b>2</b><h1>주요 전시 업체 요약</h1></div><p class="overview-intro">총 29개 방문 업체 · 6개 분야</p><table class="overview-table"><thead><tr><th>분야</th><th>참관 업체</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table>'+foot(3),'company-overview')
+summary=page('<div class="legacy-head"><span></span><b>2</b><h1>주요 전시 업체 요약</h1></div><p class="overview-intro">총 28개 방문 업체 · 6개 분야</p><table class="overview-table"><thead><tr><th>분야</th><th>참관 업체</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table>'+foot(3),'company-overview')
 out=[F['summary1'],F['summary2'],summary]
 for company_no,c in enumerate(C,1):
  n=company_no+3
