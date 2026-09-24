@@ -23,7 +23,7 @@ def sample_html(p):
  image=f'<defs><clipPath id="{clip}"><rect x="{vx}" y="{vy}" width="{vw}" height="{vh}"/></clipPath></defs><g clip-path="url(#{clip})">{image}</g>'
  return f'<figure><svg class="sample-photo" width="{vw}" height="{vh}" viewBox="{view}" role="img" aria-label="{e(p["caption"])}"><title>{e(p["caption"])}</title>{image}</svg><figcaption>{e(p["caption"])}</figcaption></figure>'
 
-def foot(n):return f'<footer>CAMX 2026 REPORT · 1차 최종본 <span>{n:02}</span></footer>'
+def foot(n):return f'<footer>CAMX 2026 REPORT <span>{n:02}</span></footer>'
 rows=[]
 for theme,section in enumerate(sections,1):
  members=[(i,c) for i,c in enumerate(C,1) if c['section']==section]
@@ -45,12 +45,12 @@ for company_no,c in enumerate(C,1):
  elif c['key']=='nabaltec':
   visual=''
  else:
-  focus={'saertex':('공급·적용 확인','북미 생산 NCF와 설계 지원은 확인. 현대·기아 적용 이력은 지역별 공급망을 구분해 추가 확인.'),'magestic':('적용 범위','형상 추종·주름·장비 경로를 검토하는 도구. 구조 강도 해석을 대체하는 기능으로 보지 않고 실제 적층 형상으로 검증.')}[c['key']]
+  focus={'saertex':('공급·적용 확인','북미 생산 NCF와 적층 설계 지원 역량을 확인. 현대·기아 적용 이력에 대한 답변은 북미 담당자의 확인 범위에 한정.'),'magestic':('적용 범위','형상 추종·주름 및 장비 경로 검토를 지원. 기하학적 드레이핑과 장비 동작 검토 기능으로, 구조 강도 해석과는 구분.')}[c['key']]
   visual=f'<aside class="discussion-panel"><h3>{e(focus[0])}</h3><p>{e(focus[1])}</p><small>주요 상담 내용</small></aside>'
- takeaway='<div class="takeaway"><b>Take Away</b><ul>'+''.join('<li>'+e(t)+'</li>' for t in take)+'</ul></div>' if take else ''
+ takeaway='<div class="takeaway"><b>핵심 시사점</b><ul>'+''.join('<li>'+e(t)+'</li>' for t in take)+'</ul></div>' if take else ''
  followup=f'<div class="followup"><b>후속 컨택 포인트</b><p>{e(follow)}</p></div>' if follow else ''
  out.append(page(f'<header><span class="section-no">{company_no:02}</span><h1>{e(c["name"])}</h1><span class="category theme-{sections.index(c["section"])+1}"><small>SECTION</small>{e(c["section"])}</span></header>'+meta+'<div class="detail-grid">'+text+visual+'</div>'+takeaway+followup+foot(n),cls,'company-'+c['key']))
-(R/'index.html').write_text('<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CAMX 2026 참관 보고서 · 1차 최종본</title><link rel="stylesheet" href="report.css"></head><body>'+''.join(out)+CARD_SCRIPT+'</body></html>')
+(R/'index.html').write_text('<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CAMX 2026 참관 보고서</title><link rel="stylesheet" href="report.css"></head><body>'+''.join(out)+CARD_SCRIPT+'</body></html>')
 print(f'Built {len(out)} pages / {len(C)} companies')
 
 cards=json.loads((R/'business-cards.json').read_text())

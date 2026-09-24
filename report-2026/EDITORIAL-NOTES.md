@@ -58,3 +58,9 @@
 - MAST의 MF11 주파수 범위를 전 제품 공통 범위로 해석하지 않도록 MF11-0001-00의 12–40 GHz / 9.53mm 사양으로 한정. Tuned-frequency의 약20dB는 설계 주파수에서의 반사 감쇠로 수정. https://www.masttechnologies.com/products/page/5/ ; https://www.masttechnologies.com/products/defense/rf-absorbers/tuned-frequency-16-ghz-2/
 - Parson 고온 접착 수치는 담당자 설명임을 명시하고 등급·시험 조건별 확인 필요로 정리.
 - Nabaltec·Color Master 후속 내용은 적용 가능한 제품·샘플 정보 수령 및 필요 시 연락으로 수정. Kelvinite·Cannon 후속 컨택 및 시사점의 자사 후속 방향 삭제 유지.
+
+## 2026-09-23 문장 최종 정리
+- 28개 업체 개요를 간결한 명사형 보고 문체로 통일. 주관적 감상·사진 수 설명·반복 표현 정리.
+- 기술 수치와 시험 조건 유지. 관찰, 담당자 설명, 검증 필요 사항을 구분하고 신규 사실 추가 없이 문장 편집.
+- 시사점 제목 정리, Take Away를 핵심 시사점으로 변경. 표지·문서 제목·하단의 판본 표기 삭제.
+- 기존 사진 41장 및 명함 유지. 31페이지 렌더링에서 본문 넘침·캡션 분리·폰트 누락 점검 완료.
