@@ -144,7 +144,7 @@
     "name": "James Cropper Advanced Materials",
     "section": "기능성 소재",
     "product": "TECNOFIRE® · EMITEC™ · SurfaceTec™ · UNIMAT",
-    "profile": "탄소섬유·유리섬유 기반 부직포와 기능성 베일 개발 업체. 내화 매트 TECNOFIRE, 전도성 베일 EMITEC 및 정렬형 재생 탄소섬유 부직포 UNIMAT을 중심으로 제품군 구성.",
+    "profile": "탄소섬유·유리섬유 기반 기능성 부직포 개발 업체. 내화 매트 TECNOFIRE, 전도성 부직포 EMITEC 및 정렬형 재생 탄소섬유 부직포 UNIMAT을 중심으로 제품군 구성.",
     "website": "https://advancedmaterials.jamescropper.com",
     "location": [
       "본사: 영국 Burneside, Kendal",
@@ -152,7 +152,7 @@
     ],
     "person": "Joe Stackpoole",
     "bullets": [
-      "EMITEC™는 금속 코팅 탄소섬유 기반의 전도성 부직포 베일. 뉴욕에서 탄소섬유 토우에 Cu·Ni·Cu/Ni를 코팅한 뒤, 영국에서 섬유를 절단해 베일로 제조하는 방식. 배터리 케이스의 EMI 차폐 용도를 중심으로 확인.",
+      "EMITEC™는 금속 코팅 탄소섬유로 만든 얇은 전도성 부직포(Veil). 뉴욕에서 탄소섬유 토우에 Cu·Ni·Cu/Ni를 코팅한 뒤, 영국에서 섬유를 절단해 얇은 부직포로 제조하는 방식. 배터리 케이스의 EMI 차폐 용도를 중심으로 확인.",
       "TECNOFIRE®는 팽창형(Intumescent) 내화 매트. 열에 노출되면 두께 방향으로 팽창해 단열 탄화층을 형성하고, 복합재 내부로의 열 전달과 화염 관통을 억제.",
       "화염 단독 시험의 온도 저감 효과와 Torch & Grit 대응 성능을 구분해 확인. 기존 자사 협의에서도 Torch & Grit 시험 요구 충족의 어려움 확인. 담당자 설명상 그릿 충돌 시 매트가 찢어질 수 있어, 고온 입자 충돌에 대한 저항성 부족.",
       "UNIMAT™은 짧은 섬유를 길이 방향으로 약 90–95% 정렬한 미함침 부직포. 연속 UD 수준의 강도를 목표로 하기보다 복잡 형상에서 브리징·주름을 줄이는 성형성이 강점.",
@@ -195,7 +195,7 @@
         ]
       }
     ],
-    "comparison": "기존 금속 코팅 베일과 TECNOFIRE는 작년 대비 큰 변화가 없다는 답변. 올해 신규 내용은 JEC에서 출시한 UNIMAT 정렬형 단섬유 부직포로, 기존 무작위 배열 베일과 구분됨.",
+    "comparison": "기존 금속 코팅 부직포과 TECNOFIRE는 작년 대비 큰 변화가 없다는 답변. 올해 신규 내용은 JEC에서 출시한 UNIMAT 정렬형 단섬유 부직포로, 기존 무작위 배열 부직포과 구분됨.",
     "card": {
       "src": "assets/cards/cropper.jpg",
       "quad": [
