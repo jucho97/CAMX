@@ -38,7 +38,7 @@ for company_no,c in enumerate(C,1):
  n=company_no+2
  photos=c['photos']; take=c.get('takeaways',[]); follow=c.get('followup','');compare=c.get('comparison','')
  dense=bool(compare or len(c['bullets'])>=5)
- cls='detail-page'+(' dense' if dense else '')+(' has-takeaway' if take else '')+(' has-followup' if follow else '')+(' no-photos' if not photos else '')+(' has-card' if c.get('card') else '')+(' text-only' if c['key']=='nabaltec' else '')
+ cls='detail-page'+(' dense' if dense else '')+(' has-takeaway' if take else '')+(' has-followup' if follow else '')+(' no-photos' if not photos else '')+(' has-card' if c.get('card') else '')
  contact=('<div class="card-meta"><span>부스 담당자</span>'+card_html(c['card'],c['key'])+'</div>') if c.get('card') else (f'<div><span>부스 담당자</span><b>{e(c["person"])}</b></div>' if c.get('person') else '')
  meta=f'<div class="meta {"no-contact" if not contact else ""}"><div><span>본사 · 사업장 위치</span><b>'+ '<br>'.join(e(x) for x in c['location'])+'</b></div>'+contact+f'<div><span>핵심 전시품</span><b>{e(c["product"])}</b><span class="contact-label">회사 홈페이지</span><b><a href="{e(c["website"])}">{e(c["website"].split("//")[-1].split("/")[0])}</a></b></div></div>'
  comparison=f'<div class="comparison"><b>2025년 대비 확인된 변화</b>{e(compare)}</div>' if compare else ''
