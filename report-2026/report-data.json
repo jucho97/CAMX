@@ -2,7 +2,7 @@
   {
     "key": "krempel",
     "name": "Krempel",
-    "section": "난연·내화 소재",
+    "section": "기능성 소재",
     "product": "KremGuard 저연·저독성 프리프레그",
     "profile": "전기 절연재와 고기능 복합재를 공급하는 독일 소재 기업. KremGuard 제품군을 중심으로 모빌리티용 난연 구조재와 배터리 보호 부품용 소재를 전개.",
     "website": "https://krempel.com/en/products/composites/kremguard",
@@ -33,81 +33,9 @@
     "comparison": ""
   },
   {
-    "key": "agci",
-    "name": "AGCI · Kynol",
-    "section": "난연·내화 소재",
-    "product": "노볼로이드계 페놀 섬유·분말",
-    "profile": "일본 Gun Ei Chemical Industry의 미국 법인인 American GCI Resitop. 페놀수지 기반 Kynol® 노볼로이드 섬유를 공급하며, 복합재·고무 보강 및 내열·난연 용도로 전개.",
-    "website": "https://kynol.com",
-    "location": [
-      "미국 사업장: Schaumburg, IL (American GCI Resitop)"
-    ],
-    "person": "Hidetoshi Funatsu",
-    "bullets": [
-      "Kynol®은 페놀수지 기반 노볼로이드 섬유. 용융·적하 대신 탄화층을 형성하는 내열·난연 특성이 핵심.",
-      "전시품은 Kynol 단섬유·분말·직물과 페놀계 적층판, 탄화 소재 샘플로 구성.",
-      "섬유·펠트·직물은 화염 차단과 단열, 분말은 수지·고무 조성물의 난연 및 마찰재 충전용으로 사용할 수 있음.",
-      "엘라스토머와의 상용성이 우수하나, 아라미드 섬유와 비교해 가격 차이가 크지 않아 원가 우위는 제한적.",
-      "방화복·고온 필터·단열재·마찰재·가스켓 및 복합재 난연층에 적용."
-    ],
-    "takeaways": [
-      "엘라스토머와의 상용성이 차별점이나 아라미드 대비 가격 우위는 제한적. 단순 원가 절감보다 내열·난연 기능과 배합 적합성을 기준으로 판단할 소재."
-    ],
-    "followup": "",
-    "photos": [
-      {
-        "src": "assets/agci-1.jpg",
-        "caption": "Kynol® 노볼로이드 내열·난연 섬유 직물",
-        "imageRatio": 1.3333333333333333,
-        "frame": [
-          0.07,
-          0.07,
-          0.9,
-          0.8
-        ]
-      },
-      {
-        "src": "assets/agci-2.jpg",
-        "caption": "Kynol® 페놀계 적층판 및 성형 샘플",
-        "imageRatio": 0.75,
-        "frame": [
-          0.02,
-          0.16,
-          0.98,
-          0.72
-        ]
-      }
-    ],
-    "comparison": "",
-    "card": {
-      "src": "assets/cards/yesterday-original.jpg",
-      "quad": [
-        [
-          0.1286549707602339,
-          0.6842105263157895
-        ],
-        [
-          0.5116959064327485,
-          0.6847587719298246
-        ],
-        [
-          0.5175438596491229,
-          0.850328947368421
-        ],
-        [
-          0.13084795321637427,
-          0.8470394736842105
-        ]
-      ],
-      "imageRatio": 0.75,
-      "ratio": 1.75,
-      "name": "Hidetoshi Funatsu"
-    }
-  },
-  {
     "key": "kelvinite",
     "name": "Highland · Kelvinite",
-    "section": "난연·내화 소재",
+    "section": "기능성 소재",
     "product": "배터리 열폭주 차단용 수지·복합재",
     "profile": "Highland Plastics의 난연 PP 및 복합재 브랜드. 박막의 난연성과 전기 절연성을 목표로 시트·롤·컴파운드 및 배터리용 Flame Shield 제품군을 공급.",
     "website": "https://highlandplastics.com/materials/kelvinite/",
@@ -188,81 +116,69 @@
     }
   },
   {
-    "key": "vulcan",
-    "name": "Vulcan Shield Global",
-    "section": "난연·내화 소재",
-    "product": "연속 알루미나 섬유 직물",
-    "profile": "연속 알루미나 섬유와 고온용 직물·테이프 공급 업체. 싱가포르 본사와 헝가리 생산 거점을 기반으로 직조 조직과 치수의 맞춤 설계에 대응.",
-    "website": "https://www.vulcanshield.com",
+    "key": "pyrophobic",
+    "name": "Pyrophobic Systems",
+    "section": "기능성 소재",
+    "product": "Lithium Prevent™ 팽창성 열가소성 소재",
+    "profile": "캐나다 화재 안전 소재 기업. 건축·배터리용 팽창성 수지와 성형 부품을 개발하며, 사출·압출 공정용 제품을 공급.",
+    "website": "https://pyrophobic.com",
     "location": [
-      "본사: 싱가포르",
-      "생산 거점: 헝가리"
+      "본사: Barrie, Ontario, Canada"
     ],
-    "person": "Kai Fong",
+    "person": "Amir Kouhpour",
     "bullets": [
-      "전시품은 연속 알루미나 섬유 토우, 평직·능직 직물과 두께가 다른 고온 차단용 섬유 샘플로 구성.",
-      "제품군은 약 1,200°C 연속 사용 사양으로, 폭 0.8–1.2 m, 면중량 180–1,600 g/m²에 대응하며 3D 직물은 약 0.8–10 mm 두께까지 설계 가능.",
-      "요구 폭·두께·직조 조직으로 맞춤 제작할 수 있고 유럽 및 싱가포르 공급망을 통해 고온 단열·화염 차단 구조에 적용.",
-      "세라믹계 연속섬유 특성상 절곡·취급성, 수지 함침 및 가공비는 실제 적층 샘플로 확인할 필요."
+      "화염에 노출되면 수지가 팽창해 차열층을 형성하고 인접 셀로의 전파를 억제. 원통형 셀 수용 구조와 화염 노출 후 팽창한 샘플을 전시.",
+      "이번 전시 소재는 PVC 기반이며, 유리섬유 없이 수지 자체의 팽창·탄화로 장벽을 형성. 담당자는 비PVC 수지도 개발 중이라고 설명.",
+      "Torch & Grit 시험 결과는 담당자 설명 기준 3 mm 두께에서 3–4사이클 수준으로 확인.",
+      "사출용 및 압출용 등급을 구분해 공급. PVC의 가스 발생 문제도 상담했으며, 난연성 외에 연기·가스와 성형 조건을 함께 검토할 필요."
     ],
-    "takeaways": [
-      "고온 차단 성능에 맞춤 직조 역량을 결합. 일반 GF와 구분되는 알루미나계 연속섬유로, 요구 형상의 내화층을 설계할 수 있다는 점이 핵심."
-    ],
-    "followup": "",
     "photos": [
       {
-        "src": "assets/vulcan-1.jpg",
-        "caption": "연속 알루미나 섬유 직물 샘플",
+        "src": "assets/day2/IMG_0460.jpeg",
+        "caption": "화염 노출 후 팽창한 내화 소재 샘플",
         "imageRatio": 0.75,
         "frame": [
-          0.015,
-          0.12,
-          0.96,
-          0.73
-        ]
-      },
-      {
-        "src": "assets/vulcan-2.jpg",
-        "caption": "고온용 알루미나 섬유 토우·직조 샘플",
-        "imageRatio": 0.75,
-        "frame": [
-          0.23,
-          0.13,
-          0.44,
-          0.85
+          0.045,
+          0.22,
+          0.865,
+          0.5
         ]
       }
     ],
+    "followup": "",
     "comparison": "",
+    "takeaways": [
+      "GF 보강 없이 수지의 팽창·탄화층을 활용하는 화염 차단 방식. 복합재 시트와 비교할 때 두께·중량뿐 아니라 가스 발생 및 형상 유지도 함께 평가."
+    ],
     "card": {
-      "src": "assets/cards/yesterday-original.jpg",
+      "src": "assets/cards/pyrophobic.jpg",
       "quad": [
         [
-          0.5197368421052632,
-          0.5164473684210527
+          0.121,
+          0.439
         ],
         [
-          0.918859649122807,
-          0.5137061403508771
+          0.86,
+          0.41
         ],
         [
-          0.9195906432748538,
-          0.6836622807017544
+          0.866,
+          0.738
         ],
         [
-          0.52046783625731,
-          0.6820175438596491
+          0.139,
+          0.77
         ]
       ],
       "imageRatio": 0.75,
       "ratio": 1.75,
-      "name": "Kai Fong"
+      "name": "Amir Kouhpour"
     }
   },
   {
     "key": "cropper",
     "name": "James Cropper Advanced Materials",
-    "section": "난연·내화 소재",
+    "section": "기능성 소재",
     "product": "TECNOFIRE® · EMITEC™ · SurfaceTec™ · UNIMAT",
     "profile": "탄소섬유·유리섬유 기반 부직포와 기능성 베일 개발 업체. 내화 매트 TECNOFIRE, 전도성 베일 EMITEC 및 정렬형 재생 탄소섬유 부직포 UNIMAT을 중심으로 제품군 구성.",
     "website": "https://advancedmaterials.jamescropper.com",
@@ -342,118 +258,9 @@
     }
   },
   {
-    "key": "pyrophobic",
-    "name": "Pyrophobic Systems",
-    "section": "난연·내화 소재",
-    "product": "Lithium Prevent™ 팽창성 열가소성 소재",
-    "profile": "캐나다 화재 안전 소재 기업. 건축·배터리용 팽창성 수지와 성형 부품을 개발하며, 사출·압출 공정용 제품을 공급.",
-    "website": "https://pyrophobic.com",
-    "location": [
-      "본사: Barrie, Ontario, Canada"
-    ],
-    "person": "Amir Kouhpour",
-    "bullets": [
-      "화염에 노출되면 수지가 팽창해 차열층을 형성하고 인접 셀로의 전파를 억제. 원통형 셀 수용 구조와 화염 노출 후 팽창한 샘플을 전시.",
-      "이번 전시 소재는 PVC 기반이며, 유리섬유 없이 수지 자체의 팽창·탄화로 장벽을 형성. 담당자는 비PVC 수지도 개발 중이라고 설명.",
-      "Torch & Grit 시험 결과는 담당자 설명 기준 3 mm 두께에서 3–4사이클 수준으로 확인.",
-      "사출용 및 압출용 등급을 구분해 공급. PVC의 가스 발생 문제도 상담했으며, 난연성 외에 연기·가스와 성형 조건을 함께 검토할 필요."
-    ],
-    "photos": [
-      {
-        "src": "assets/day2/IMG_0460.jpeg",
-        "caption": "화염 노출 후 팽창한 내화 소재 샘플",
-        "imageRatio": 0.75,
-        "frame": [
-          0.045,
-          0.22,
-          0.865,
-          0.5
-        ]
-      }
-    ],
-    "followup": "",
-    "comparison": "",
-    "takeaways": [
-      "GF 보강 없이 수지의 팽창·탄화층을 활용하는 화염 차단 방식. 복합재 시트와 비교할 때 두께·중량뿐 아니라 가스 발생 및 형상 유지도 함께 평가."
-    ],
-    "card": {
-      "src": "assets/cards/pyrophobic.jpg",
-      "quad": [
-        [
-          0.121,
-          0.439
-        ],
-        [
-          0.86,
-          0.41
-        ],
-        [
-          0.866,
-          0.738
-        ],
-        [
-          0.139,
-          0.77
-        ]
-      ],
-      "imageRatio": 0.75,
-      "ratio": 1.75,
-      "name": "Amir Kouhpour"
-    }
-  },
-  {
-    "key": "nabaltec",
-    "name": "Nabaltec",
-    "section": "난연·내화 소재",
-    "product": "ACTILOX® HTB · ATH·Boehmite",
-    "profile": "무기 난연 충전재 전문기업. PP 배터리 하우징의 화염 차단을 위한 세라믹화 첨가제 ACTILOX HTB의 배합 방식과 공급 조건을 중심으로 상담.",
-    "website": "https://www.nabaltec.de",
-    "location": [
-      "본사: Schwandorf, Germany",
-      "미국 거점: Portland, Texas"
-    ],
-    "person": "Michael Johnson",
-    "bullets": [
-      "ACTILOX HTB는 화염 노출 시 표면에 세라믹화 장벽을 형성하도록 설계한 배합형 첨가제. 표면 코팅 방식이 아니라 PP 등 수지에 혼합하는 방식으로 설명.",
-      "PP 배합의 Torch & Grit 시험 영상과 관련 자료를 후속 미팅에서 공유할 수 있다고 답변. 상담만으로 배합량·두께별 시험 조건을 명확히 구분하기 어려워 상세 배합표와 성적서 확인이 필요.",
-      "인계 난연제와 병용하는 시너지용 첨가제가 아니라 자체 배합된 솔루션으로 소개. 다른 난연제 추가 시 장벽 형성에 영향을 줄 수 있어 권장 배합 조건 확인이 필요.",
-      "기존 ATH와 Boehmite 제품도 공급하며 가공 온도에 따라 소재를 구분. 신규 HTB의 샘플은 기술 협의 및 NDA 체결 후 공급 가능하다고 안내."
-    ],
-    "photos": [],
-    "followup": "Michael Johnson — 적용 가능한 PP용 첨가제와 샘플 정보를 수령하고, 추후 필요 시 기술 협의 및 샘플 공급 조건을 문의.",
-    "comparison": "",
-    "takeaways": [
-      "자사 PP 배합에 직접 검토할 수 있는 후보. HTB 권장 처방을 기준으로 기존 인계 난연 배합과의 성능·가공성 비교가 필요."
-    ],
-    "card": {
-      "src": "assets/cards/nabaltec.jpg",
-      "quad": [
-        [
-          0.254,
-          0.454
-        ],
-        [
-          0.787,
-          0.439
-        ],
-        [
-          0.797,
-          0.684
-        ],
-        [
-          0.26,
-          0.708
-        ]
-      ],
-      "imageRatio": 0.75,
-      "ratio": 1.75,
-      "name": "Michael Johnson"
-    }
-  },
-  {
     "key": "stm",
     "name": "STM · Swift Textile Metalizing",
-    "section": "EMI·RF 기능성 소재",
+    "section": "기능성 소재",
     "product": "금속도금 섬유 기반 EMI 차폐 시트",
     "profile": "1955년부터 전도성 금속도금 직물을 개발해 온 미국 기업. 직물의 유연성을 유지하면서 EMI/RF 차폐와 정전기 제어 기능을 구현하는 소재를 공급.",
     "website": "https://www.swift-textile.com",
@@ -500,7 +307,7 @@
   {
     "key": "mast",
     "name": "MAST Technologies",
-    "section": "EMI·RF 기능성 소재",
+    "section": "기능성 소재",
     "product": "RF 흡수체·EMI 차폐 엘라스토머/폼",
     "profile": "RF 흡수체, EMI 차폐재 및 열관리 소재를 설계·시험하는 미국 기업. 적용 주파수에 맞춘 엘라스토머·폼·코팅형 기능성 소재를 공급.",
     "website": "https://masttechnologies.com",
@@ -526,9 +333,153 @@
     "comparison": ""
   },
   {
+    "key": "agci",
+    "name": "AGCI · Kynol",
+    "section": "섬유·직물·보강재",
+    "product": "노볼로이드계 페놀 섬유·분말",
+    "profile": "일본 Gun Ei Chemical Industry의 미국 법인인 American GCI Resitop. 페놀수지 기반 Kynol® 노볼로이드 섬유를 공급하며, 복합재·고무 보강 및 내열·난연 용도로 전개.",
+    "website": "https://kynol.com",
+    "location": [
+      "미국 사업장: Schaumburg, IL (American GCI Resitop)"
+    ],
+    "person": "Hidetoshi Funatsu",
+    "bullets": [
+      "Kynol®은 페놀수지 기반 노볼로이드 섬유. 용융·적하 대신 탄화층을 형성하는 내열·난연 특성이 핵심.",
+      "전시품은 Kynol 단섬유·분말·직물과 페놀계 적층판, 탄화 소재 샘플로 구성.",
+      "섬유·펠트·직물은 화염 차단과 단열, 분말은 수지·고무 조성물의 난연 및 마찰재 충전용으로 사용할 수 있음.",
+      "엘라스토머와의 상용성이 우수하나, 아라미드 섬유와 비교해 가격 차이가 크지 않아 원가 우위는 제한적.",
+      "방화복·고온 필터·단열재·마찰재·가스켓 및 복합재 난연층에 적용."
+    ],
+    "takeaways": [
+      "엘라스토머와의 상용성이 차별점이나 아라미드 대비 가격 우위는 제한적. 단순 원가 절감보다 내열·난연 기능과 배합 적합성을 기준으로 판단할 소재."
+    ],
+    "followup": "",
+    "photos": [
+      {
+        "src": "assets/agci-1.jpg",
+        "caption": "Kynol® 노볼로이드 내열·난연 섬유 직물",
+        "imageRatio": 1.3333333333333333,
+        "frame": [
+          0.07,
+          0.07,
+          0.9,
+          0.8
+        ]
+      },
+      {
+        "src": "assets/agci-2.jpg",
+        "caption": "Kynol® 페놀계 적층판 및 성형 샘플",
+        "imageRatio": 0.75,
+        "frame": [
+          0.02,
+          0.16,
+          0.98,
+          0.72
+        ]
+      }
+    ],
+    "comparison": "",
+    "card": {
+      "src": "assets/cards/yesterday-original.jpg",
+      "quad": [
+        [
+          0.1286549707602339,
+          0.6842105263157895
+        ],
+        [
+          0.5116959064327485,
+          0.6847587719298246
+        ],
+        [
+          0.5175438596491229,
+          0.850328947368421
+        ],
+        [
+          0.13084795321637427,
+          0.8470394736842105
+        ]
+      ],
+      "imageRatio": 0.75,
+      "ratio": 1.75,
+      "name": "Hidetoshi Funatsu"
+    }
+  },
+  {
+    "key": "vulcan",
+    "name": "Vulcan Shield Global",
+    "section": "섬유·직물·보강재",
+    "product": "연속 알루미나 섬유 직물",
+    "profile": "연속 알루미나 섬유와 고온용 직물·테이프 공급 업체. 싱가포르 본사와 헝가리 생산 거점을 기반으로 직조 조직과 치수의 맞춤 설계에 대응.",
+    "website": "https://www.vulcanshield.com",
+    "location": [
+      "본사: 싱가포르",
+      "생산 거점: 헝가리"
+    ],
+    "person": "Kai Fong",
+    "bullets": [
+      "전시품은 연속 알루미나 섬유 토우, 평직·능직 직물과 두께가 다른 고온 차단용 섬유 샘플로 구성.",
+      "제품군은 약 1,200°C 연속 사용 사양으로, 폭 0.8–1.2 m, 면중량 180–1,600 g/m²에 대응하며 3D 직물은 약 0.8–10 mm 두께까지 설계 가능.",
+      "요구 폭·두께·직조 조직으로 맞춤 제작할 수 있고 유럽 및 싱가포르 공급망을 통해 고온 단열·화염 차단 구조에 적용.",
+      "세라믹계 연속섬유 특성상 절곡·취급성, 수지 함침 및 가공비는 실제 적층 샘플로 확인할 필요."
+    ],
+    "takeaways": [
+      "고온 차단 성능에 맞춤 직조 역량을 결합. 일반 GF와 구분되는 알루미나계 연속섬유로, 요구 형상의 내화층을 설계할 수 있다는 점이 핵심."
+    ],
+    "followup": "",
+    "photos": [
+      {
+        "src": "assets/vulcan-1.jpg",
+        "caption": "연속 알루미나 섬유 직물 샘플",
+        "imageRatio": 0.75,
+        "frame": [
+          0.015,
+          0.12,
+          0.96,
+          0.73
+        ]
+      },
+      {
+        "src": "assets/vulcan-2.jpg",
+        "caption": "고온용 알루미나 섬유 토우·직조 샘플",
+        "imageRatio": 0.75,
+        "frame": [
+          0.23,
+          0.13,
+          0.44,
+          0.85
+        ]
+      }
+    ],
+    "comparison": "",
+    "card": {
+      "src": "assets/cards/yesterday-original.jpg",
+      "quad": [
+        [
+          0.5197368421052632,
+          0.5164473684210527
+        ],
+        [
+          0.918859649122807,
+          0.5137061403508771
+        ],
+        [
+          0.9195906432748538,
+          0.6836622807017544
+        ],
+        [
+          0.52046783625731,
+          0.6820175438596491
+        ]
+      ],
+      "imageRatio": 0.75,
+      "ratio": 1.75,
+      "name": "Kai Fong"
+    }
+  },
+  {
     "key": "ngf",
     "name": "Nippon Graphite Fiber",
-    "section": "섬유·직물·프리폼",
+    "section": "섬유·직물·보강재",
     "product": "GRANOC™ 피치계 탄소섬유",
     "profile": "피치계 탄소섬유를 생산하는 일본 기업. 고탄성률·고열전도 특성을 활용해 우주 구조물과 열관리용 복합재 분야에 소재를 공급.",
     "website": "https://www.ngfworld.com",
@@ -592,7 +543,7 @@
   {
     "key": "v2",
     "name": "V2 Composites",
-    "section": "섬유·직물·프리폼",
+    "section": "섬유·직물·보강재",
     "product": "다축 유리섬유 보강재",
     "profile": "유리·탄소섬유 기반 다축 보강재를 공급하는 미국 기업. 요구 하중과 성형 방식에 맞춘 섬유 방향·면중량 설계 및 평가 샘플 공급 조건을 상담.",
     "website": "https://v2composites.com",
@@ -650,7 +601,7 @@
   {
     "key": "saertex",
     "name": "SAERTEX USA",
-    "section": "섬유·직물·프리폼",
+    "section": "섬유·직물·보강재",
     "product": "다축 NCF·프리폼 및 적층 설계",
     "profile": "유리·탄소섬유 다축 보강재와 프리폼 공급 업체. 북미 생산 기반, 자동차 적용 사례 및 적층 설계 지원 범위를 중심으로 상담.",
     "website": "https://saertex-usa.com",
@@ -697,7 +648,7 @@
   {
     "key": "concordia",
     "name": "Concordia Fibers",
-    "section": "섬유·직물·프리폼",
+    "section": "섬유·직물·보강재",
     "product": "보강섬유·열가소성 섬유 Commingled Yarn",
     "profile": "보강섬유와 열가소성 섬유를 혼합한 원사를 공급하는 미국 기업. 원사 단계에서 수지·보강섬유 비율을 설계하며, 직조는 별도 파트너를 통해 수행.",
     "website": "https://concordiafibers.com",
@@ -756,7 +707,7 @@
   {
     "key": "angeloni",
     "name": "Angeloni Group",
-    "section": "섬유·직물·프리폼",
+    "section": "섬유·직물·보강재",
     "product": "고급차 내장용 탄소·금속 하이브리드 디자인 직물",
     "profile": "탄소섬유 직조·편조 기술 기반의 이탈리아 복합재 직물 기업. 고급 자동차 실내 장식용 소재를 공급하며, 섬유·금속사 조합과 색상·패턴의 맞춤 제작에 대응.",
     "website": "https://www.angelonigroup.com",
@@ -820,6 +771,55 @@
       "imageRatio": 0.75,
       "ratio": 1.75,
       "name": "Christian Passarini"
+    }
+  },
+  {
+    "key": "nabaltec",
+    "name": "Nabaltec",
+    "section": "수지·컴파운드·중간재",
+    "product": "ACTILOX® HTB · ATH·Boehmite",
+    "profile": "무기 난연 충전재 전문기업. PP 배터리 하우징의 화염 차단을 위한 세라믹화 첨가제 ACTILOX HTB의 배합 방식과 공급 조건을 중심으로 상담.",
+    "website": "https://www.nabaltec.de",
+    "location": [
+      "본사: Schwandorf, Germany",
+      "미국 거점: Portland, Texas"
+    ],
+    "person": "Michael Johnson",
+    "bullets": [
+      "ACTILOX HTB는 화염 노출 시 표면에 세라믹화 장벽을 형성하도록 설계한 배합형 첨가제. 표면 코팅 방식이 아니라 PP 등 수지에 혼합하는 방식으로 설명.",
+      "PP 배합의 Torch & Grit 시험 영상과 관련 자료를 후속 미팅에서 공유할 수 있다고 답변. 상담만으로 배합량·두께별 시험 조건을 명확히 구분하기 어려워 상세 배합표와 성적서 확인이 필요.",
+      "인계 난연제와 병용하는 시너지용 첨가제가 아니라 자체 배합된 솔루션으로 소개. 다른 난연제 추가 시 장벽 형성에 영향을 줄 수 있어 권장 배합 조건 확인이 필요.",
+      "기존 ATH와 Boehmite 제품도 공급하며 가공 온도에 따라 소재를 구분. 신규 HTB의 샘플은 기술 협의 및 NDA 체결 후 공급 가능하다고 안내."
+    ],
+    "photos": [],
+    "followup": "Michael Johnson — 적용 가능한 PP용 첨가제와 샘플 정보를 수령하고, 추후 필요 시 기술 협의 및 샘플 공급 조건을 문의.",
+    "comparison": "",
+    "takeaways": [
+      "자사 PP 배합에 직접 검토할 수 있는 후보. HTB 권장 처방을 기준으로 기존 인계 난연 배합과의 성능·가공성 비교가 필요."
+    ],
+    "card": {
+      "src": "assets/cards/nabaltec.jpg",
+      "quad": [
+        [
+          0.254,
+          0.454
+        ],
+        [
+          0.787,
+          0.439
+        ],
+        [
+          0.797,
+          0.684
+        ],
+        [
+          0.26,
+          0.708
+        ]
+      ],
+      "imageRatio": 0.75,
+      "ratio": 1.75,
+      "name": "Michael Johnson"
     }
   },
   {
@@ -1380,7 +1380,7 @@
   {
     "key": "parson",
     "name": "Parson Adhesives",
-    "section": "접착·조립",
+    "section": "접착·접합 소재",
     "product": "고온 구조용 접착제",
     "profile": "금속·복합재·플라스틱용 구조용 접착제를 개발하는 미국 기업. 유리섬유 복합재와 금속의 고온 접합 성능 및 적용 조건을 중심으로 상담.",
     "website": "https://www.parsonadhesives.com",
@@ -1413,7 +1413,7 @@
   {
     "key": "ll",
     "name": "L&L Products",
-    "section": "접착·조립",
+    "section": "접착·접합 소재",
     "product": "T-Link™ L-F620·InsituCore™",
     "profile": "접착·보강·경량 구조 소재 개발 업체. 열가소성 접착 필름을 이용한 층간 보강과 금형 내 발포 코어의 구조·성형 특성을 중심으로 상담.",
     "website": "https://www.llproducts.com",
@@ -1496,7 +1496,7 @@
   {
     "key": "toray",
     "name": "Toray Group",
-    "section": "구조부품·항공우주 응용",
+    "section": "구조부품·응용 제품",
     "product": "CFRP 구조재·압력용기·열가소성 복합재",
     "profile": "탄소섬유, 프리프레그, 열가소성 복합재 및 성형 기술을 공급하는 글로벌 소재 기업. 고압 저장용기와 모빌리티 구조재 등 실제 적용품을 전시.",
     "website": "https://www.toray.com",
@@ -1531,7 +1531,7 @@
   {
     "key": "rebuild",
     "name": "Re:Build Manufacturing",
-    "section": "구조부품·항공우주 응용",
+    "section": "구조부품·응용 제품",
     "product": "연속 GF/PP 일체형 적재함·자동화 제조",
     "profile": "제품 설계부터 복합재 공정·자동화·생산까지 연계하는 미국 제조 엔지니어링 기업. 연속 유리섬유·PP 기반 대형 일체형 적재함을 통해 설계와 양산 공정의 통합 사례를 소개.",
     "website": "https://rebuildmanufacturing.com",

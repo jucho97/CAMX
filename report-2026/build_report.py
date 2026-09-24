@@ -8,6 +8,7 @@ R=Path(__file__).resolve().parent
 e=html.escape
 C=json.loads((R/'report-data.json').read_text())
 F=json.loads((R/'frontmatter.json').read_text())
+EXTRA=json.loads((R/'overview-extra.json').read_text())
 css_version=hashlib.sha256((R/'report.css').read_bytes()).hexdigest()[:10]
 sections=list(dict.fromkeys(c['section'] for c in C))
 def page(s,cls='',id=''):return f'<section class="page {cls}" id="{id}">{s}</section>'
@@ -28,8 +29,10 @@ rows=[]
 for theme,section in enumerate(sections,1):
  members=[(i,c) for i,c in enumerate(C,1) if c['section']==section]
  links=''.join(f'<a href="#company-{c["key"]}"><span>{i:02}</span>{e(c["name"])}</a>' for i,c in members)
- rows.append(f'<tr><th scope="row"><b class="theme-{theme}">{e(section)}</b><small>{len(members)}개 업체</small></th><td><div class="overview-companies">{links}</div></td></tr>')
-summary=page('<div class="legacy-head"><span></span><b>2</b><h1>주요 전시 업체 요약</h1></div><p class="overview-intro">총 28개 업체 · 7개 분야<span>업체명을 선택하면 상세 페이지로 이동</span></p><table class="overview-table"><thead><tr><th>분야</th><th>참관 업체</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table>'+foot(3),'company-overview')
+ additional=[c for c in EXTRA if c['section']==section]
+ links+=''.join(f'<div class="overview-unlinked"><span>—</span>{e(c["name"])}</div>' for c in additional)
+ rows.append(f'<tr><th scope="row"><b class="theme-{theme}">{e(section)}</b><small>{len(members)+len(additional)}개 업체</small></th><td><div class="overview-companies">{links}</div></td></tr>')
+summary=page('<div class="legacy-head"><span></span><b>2</b><h1>주요 전시 업체 요약</h1></div><p class="overview-intro">총 29개 방문 업체 · 6개 분야<span>번호가 있는 업체명 선택 시 상세 페이지로 이동</span></p><table class="overview-table"><thead><tr><th>분야</th><th>참관 업체</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table><p class="overview-note">주요 제품군을 기준으로 분류 · 기능성 소재는 내화·차폐·전자파 흡수 포함 · Evonik은 방문업체 목록에 포함</p>'+foot(3),'company-overview')
 out=[F['summary1'],F['summary2'],summary]
 for company_no,c in enumerate(C,1):
  n=company_no+3
