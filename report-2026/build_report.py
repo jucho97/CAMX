@@ -28,7 +28,7 @@ def foot(n):return f'<footer>CAMX 2026 REPORT <span>{n}</span></footer>'
 rows=[]
 for theme,section in enumerate(sections,1):
  members=[(i,c) for i,c in enumerate(C,1) if c['section']==section]
- links=''.join(f'<a href="#company-{c["key"]}"><span>{i:02}</span>{e(c["name"])}</a>' for i,c in members)
+ links=''.join(f'<a href="#company-{c["key"]}"><span>{i:02}</span>{e(c["name"])}<b class="overview-jump">상세 보기 →</b></a>' for i,c in members)
  additional=[c for c in EXTRA if c['section']==section]
  links+=''.join(f'<div class="overview-unlinked"><span>—</span>{e(c["name"])}</div>' for c in additional)
  rows.append(f'<tr><th scope="row"><b class="theme-{theme}">{e(section)}</b><small>{len(members)+len(additional)}개 업체</small></th><td><div class="overview-companies">{links}</div></td></tr>')

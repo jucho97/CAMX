@@ -52,3 +52,8 @@ html,body,.page,.template-page,.implications-body,button,h1,h2,h3,p,li,span,b,st
 }
 
 footer span{font-size:10px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1.2}
+
+/* Visible navigation controls also remain internal links in the PDF. */
+.overview-companies a{align-items:center;gap:1.5mm}
+.overview-jump{margin-left:auto;flex:none;border:1px solid #bd805a;border-radius:3px;background:#fff5eb;color:#97502c;padding:1px 5px;font-size:9px;font-weight:500;line-height:1.7}
+.overview-companies a:hover .overview-jump{background:#f8e1cd}
