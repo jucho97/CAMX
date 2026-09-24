@@ -69,3 +69,7 @@
 - 공식 Fire Protection 페이지는 graphite-based 및 두께 방향 팽창·단열 탄화층 형성을 명시: https://advancedmaterials.jamescropper.com/product/fire-protection/
 - Cropper 인터뷰 전사 142–166초: 흑연 함량별 팽창 차이, 일부 제품의 ATH 및 기재 섬유 차이 언급. 개별 전시 등급의 정확한 배합으로 일반화하지 않음.
 - 본문은 팽창형 내화 매트의 작동 원리 중심으로 수정.
+
+## Vulcan 직조 범위 재확인
+- 2024 공식 브로슈어 PDF 5쪽: 3D woven products 1–10 mm 맞춤 제작 명시. 구체적인 두께 방향 연결 조직은 미설명. 기존 0.8–10 mm 수치와 범위 표기를 삭제하고 본문은 직조 조직·치수 맞춤 공급으로 정리.
+- 근거: https://www.vulcanshield.com/wp-content/uploads/2023/09/VSG-Product-Brochure-2024.pdf
