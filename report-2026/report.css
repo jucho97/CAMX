@@ -50,3 +50,5 @@ html,body,.page,.template-page,.implications-body,button,h1,h2,h3,p,li,span,b,st
  .page:last-child{break-after:auto}
  .photos figure,.meta,.takeaway,.followup{break-inside:avoid}
 }
+
+footer span{font-size:10px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1.2}

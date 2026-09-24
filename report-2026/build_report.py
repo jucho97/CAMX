@@ -24,7 +24,7 @@ def sample_html(p):
  image=f'<defs><clipPath id="{clip}"><rect x="{vx}" y="{vy}" width="{vw}" height="{vh}"/></clipPath></defs><g clip-path="url(#{clip})">{image}</g>'
  return f'<figure><svg class="sample-photo" width="{vw}" height="{vh}" viewBox="{view}" role="img" aria-label="{e(p["caption"])}"><title>{e(p["caption"])}</title>{image}</svg><figcaption>{e(p["caption"])}</figcaption></figure>'
 
-def foot(n):return f'<footer>CAMX 2026 REPORT <span>{n:02}</span></footer>'
+def foot(n):return f'<footer>CAMX 2026 REPORT <span>{n}</span></footer>'
 rows=[]
 for theme,section in enumerate(sections,1):
  members=[(i,c) for i,c in enumerate(C,1) if c['section']==section]
@@ -32,10 +32,10 @@ for theme,section in enumerate(sections,1):
  additional=[c for c in EXTRA if c['section']==section]
  links+=''.join(f'<div class="overview-unlinked"><span>—</span>{e(c["name"])}</div>' for c in additional)
  rows.append(f'<tr><th scope="row"><b class="theme-{theme}">{e(section)}</b><small>{len(members)+len(additional)}개 업체</small></th><td><div class="overview-companies">{links}</div></td></tr>')
-summary=page('<div class="legacy-head"><span></span><b>2</b><h1>주요 전시 업체 요약</h1></div><p class="overview-intro">총 28개 방문 업체 · 6개 분야</p><table class="overview-table"><thead><tr><th>분야</th><th>참관 업체</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table>'+foot(3),'company-overview')
-out=[F['summary1'],F['summary2'],summary]
+summary=page('<div class="legacy-head"><span></span><b>2</b><h1>주요 전시 업체 요약</h1></div><p class="overview-intro">총 28개 방문 업체 · 6개 분야</p><table class="overview-table"><thead><tr><th>분야</th><th>참관 업체</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table>'+foot(2),'company-overview')
+out=[F['summary1'],F['summary2'].replace('<div class="legacy-page-no">1</div>',foot(1)),summary]
 for company_no,c in enumerate(C,1):
- n=company_no+3
+ n=company_no+2
  photos=c['photos']; take=c.get('takeaways',[]); follow=c.get('followup','');compare=c.get('comparison','')
  dense=bool(compare or len(c['bullets'])>=5)
  cls='detail-page'+(' dense' if dense else '')+(' has-takeaway' if take else '')+(' has-followup' if follow else '')+(' no-photos' if not photos else '')+(' has-card' if c.get('card') else '')+(' text-only' if c['key']=='nabaltec' else '')
