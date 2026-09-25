@@ -3,7 +3,7 @@ const MARKETS=['전체','항공·우주','자동차','AI'];
 const SEGMENTS=['전체','소재','공정','부품'];
 const PAGE_SIZE=40;
 let savedFavorites=[];try{savedFavorites=JSON.parse(localStorage.getItem('camx-favorites')||'[]')}catch{}
-const state={records:[],translations:{},aboutSummaries:{},favorites:new Set(savedFavorites),lang:localStorage.getItem('camx-language')==='en'?'en':'ko',market:'전체',segment:'전체',scope:'all',query:'',shown:PAGE_SIZE,selected:null};
+const state={records:[],translations:{},aboutSummaries:{},favorites:new Set(savedFavorites),lang:localStorage.getItem('camx-language')==='en'?'en':'ko',market:'전체',segment:'전체',scope:'all',product:'',sort:'name',view:'compact',query:'',shown:PAGE_SIZE,selected:null};
 const $=s=>document.querySelector(s);
 const t=(key,...args)=>{const value=window.CAMX_TEXT[state.lang][key];return typeof value==='function'?value(...args):value};
 const label=value=>window.CAMX_TEXT[state.lang].labels[value]||value;
@@ -31,31 +31,36 @@ function filtered(){const q=normalize(state.query);return state.records.filter(r
   if(state.scope==='all'&&!r.id)return false;
   if(state.market!=='전체'&&!r.markets.includes(state.market))return false;
   if(state.segment!=='전체'&&!r.segments.includes(state.segment))return false;
+  if(state.product&&!r.categories.includes(state.product))return false;
+  if(state.scope==='award'&&r.awardStatus!=='winner')return false;
   if(state.scope==='prior'&&!r.priorAttendance)return false;
   if(state.scope==='uncertain'&&(!r.id||r.verification==='확인됨'))return false;
   if(state.scope==='favorite'&&!state.favorites.has(keyFor(r)))return false;
   const translated=state.translations[translationKey(r)]||{};
-  const words=[r.name,r.about,r.companyDescription,r.exhibit2026,r.award2026,r.direction,...r.categories,...r.markets,...r.segments,...Object.values(translated).flatMap(x=>Object.values(x))];
-  return !q||normalize(words.join(' ')).includes(q);
-})}
+  const words=[r.name,r.booth,r.about,r.companyDescription,r.exhibit2026,r.award2026,r.direction,...r.categories,...r.markets,...r.segments,...Object.values(translated).flatMap(x=>Object.values(x))];
+  return !q||q.split(' ').every(term=>normalize(words.join(' ')).includes(term));
+}).sort((a,b)=>(state.sort==='verified'?Number(b.verification==='확인됨')-Number(a.verification==='확인됨'):0)||a.name.localeCompare(b.name,'en'))}
 function renderFilters(){
   $('#market-filters').innerHTML=MARKETS.map(x=>`<button class="chip ${state.market===x?'active':''}" data-market="${escapeHtml(x)}" type="button" aria-pressed="${state.market===x}">${escapeHtml(label(x))}</button>`).join('');
   $('#segment-filters').innerHTML=SEGMENTS.map(x=>`<button class="chip ${state.segment===x?'active':''}" data-segment="${escapeHtml(x)}" type="button" aria-pressed="${state.segment===x}">${escapeHtml(label(x))}</button>`).join('');
   document.querySelectorAll('[data-scope]').forEach(b=>{const active=b.dataset.scope===state.scope;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))})
   $('#favorite-count').textContent=state.favorites.size;
+  const categories=[...new Set(state.records.flatMap(r=>r.categories))].sort((a,b)=>categoryText(a).localeCompare(categoryText(b),state.lang));
+  $('#product-filter').innerHTML=`<option value="">${t('productAll')}</option>`+categories.map(x=>`<option value="${escapeHtml(x)}" ${state.product===x?'selected':''}>${escapeHtml(categoryText(x))}</option>`).join('');
 }
 function cardHtml(r){const badges=r.id?[]:[`<span class="badge absent">${t('notListed')}</span>`];
+  if(r.awardStatus==='winner')badges.push(`<span class="badge winner-badge">${t('winnerBadge')}</span>`);
   if(r.priorAttendance)badges.push(`<span class="badge report">${t('priorBadge')}</span>`);
   badges.push(r.verification==='확인됨'?`<span class="badge">${escapeHtml([...r.markets,...r.segments].slice(0,3).map(label).join(' · '))}</span>`:`<span class="badge uncertain">${t('infoMissing')}</span>`);
   const description=profileText(r,'companyDescription')||profileText(r,'about');
   const products=r.categories.slice(0,3).map(category=>`<span>${escapeHtml(categoryText(category))}</span>`).join('');
   const saved=state.favorites.has(keyFor(r));
-  return `<button type="button" class="company-card ${state.selected===keyFor(r)?'selected':''}" data-key="${escapeHtml(keyFor(r))}" aria-label="${escapeHtml(r.name)} ${t('viewDetails')}"><span class="card-top"><span class="card-name">${escapeHtml(r.name)}</span><span class="card-location">${saved?'<i aria-hidden="true">★</i>':''}${r.booth?`<span class="card-booth"><small>${t('boothLabel')}</small>${escapeHtml(r.booth.replace(/^Building C, Level 1 — /,''))}</span>`:''}</span></span><span class="card-meta">${badges.join('')}</span>${products?`<span class="card-products">${products}</span>`:''}${description?`<span class="card-summary">${escapeHtml(description.slice(0,170))}${description.length>170?'…':''}</span>`:''}</button>`
+  return `<button type="button" class="company-card ${state.selected===keyFor(r)?'selected':''}" data-key="${escapeHtml(keyFor(r))}" aria-label="${escapeHtml(r.name)} ${t('viewDetails')}"><span class="card-top"><span class="card-name">${escapeHtml(r.name)}</span><span class="card-location">${saved?'<i aria-hidden="true">★</i>':''}${r.booth?`<span class="card-booth"><small>${t('boothLabel')}</small>${escapeHtml(r.booth.replace(/^Building C, Level 1 — /,''))}</span>`:''}</span></span><span class="card-meta">${badges.join('')}</span>${products?`<span class="card-products">${products}</span>`:`<span class="card-products">${t('infoMissing')}</span>`}${description?`<span class="card-summary">${escapeHtml(description.slice(0,170))}${description.length>170?'…':''}</span>`:''}</button>`
 }
 function renderList(){const rows=filtered();$('#result-count').textContent=t('resultCount',rows.length);
   $('#company-list').innerHTML=rows.length?rows.slice(0,state.shown).map(cardHtml).join(''):`<div class="no-results">${t('noResults')}</div>`;
   $('#more-button').hidden=rows.length<=state.shown;$('#more-button').textContent=t('more',Math.min(PAGE_SIZE,rows.length-state.shown));
-  $('#clear-button').hidden=!state.query&&state.market==='전체'&&state.segment==='전체'&&state.scope==='all';
+  $('#clear-button').hidden=!state.query&&state.market==='전체'&&state.segment==='전체'&&state.scope==='all'&&!state.product;
 }
 function section(title,body,note=''){return `<section class="detail-section"><h4>${escapeHtml(title)}</h4>${note?`<small>${escapeHtml(note)}</small>`:''}<p>${escapeHtml(body)}</p></section>`}
 function camxSection(r){
@@ -72,21 +77,31 @@ function renderDetail(){const r=state.records.find(x=>keyFor(x)===state.selected
   const links=[link(t('companySite'),r.companySource||r.website,true),link(t('camxPage'),directoryUrl(r)),...extraLinks].filter(Boolean).join('');
   const verificationText=r.verification==='외부 자료 확인 어려움'?t('siteInsufficient'):r.verification==='분야 확인 어려움'?t('fieldInsufficient'):r.verification==='2026 참가 미확인'?t('priorOnly'):t('verified');
   const favorite=state.favorites.has(keyFor(r));
-  panel.innerHTML=`<div class="detail-content"><p class="detail-kicker">${t('profileKicker')}</p><div class="detail-title-row"><h3>${escapeHtml(r.name)}</h3><button class="detail-close" type="button" aria-label="${t('closeDetail')}">×</button></div><div class="detail-tags">${tags.map(tag=>`<span>${escapeHtml(tag)}</span>`).join('')}</div><div class="status-line ${known?'':'unlisted'}"><span>${r.id?t('attending'):t('notListed')}</span><span>${escapeHtml(boothText(r.booth))}</span></div><button type="button" class="favorite-toggle ${favorite?'saved':''}" data-favorite="${escapeHtml(keyFor(r))}" aria-pressed="${favorite}">${favorite?'★':'☆'} ${favorite?t('favoriteSaved'):t('favoriteSave')}</button>${r.priorAttendance?section(t('prior'),t('priorText')):''}${r.categories.length?section(t('camxCategories'),r.categories.map(categoryText).join(' · ')):''}${r.companyDescription?section(t('companyIntro'),profileText(r,'companyDescription'),r.descriptionSource==='company_site'?t('companySiteNote'):t('editorialNote')):''}${r.about?camxSection(r):''}${r.exhibit2026?section(t('exhibit'),profileText(r,'exhibit2026')):''}${r.award2026?section(t('award2026Detail'),profileText(r,'award2026'),t('awardCandidateNote')):''}${r.direction?section(t('latest'),profileText(r,'direction'),t('latestNote')):''}${section(t('dataStatus'),verificationText)}<div class="links">${links}</div></div>`;
+  panel.innerHTML=`<div class="detail-content"><p class="detail-kicker">${t('profileKicker')}</p><div class="detail-title-row"><h3>${escapeHtml(r.name)}</h3><button class="detail-close" type="button" aria-label="${t('closeDetail')}">×</button></div><div class="detail-tags">${tags.map(tag=>`<span>${escapeHtml(tag)}</span>`).join('')}</div><div class="status-line ${known?'':'unlisted'}"><span>${r.id?t('attending'):t('notListed')}</span><span>${escapeHtml(boothText(r.booth))}</span></div><button type="button" class="favorite-toggle ${favorite?'saved':''}" data-favorite="${escapeHtml(keyFor(r))}" aria-pressed="${favorite}">${favorite?'★':'☆'} ${favorite?t('favoriteSaved'):t('favoriteSave')}</button>${r.priorAttendance?`<p class="prior-inline">${t('prior')}</p>`:''}${r.categories.length?section(t('camxCategories'),r.categories.map(categoryText).join(' · ')):''}${r.companyDescription?section(t('companyIntro'),profileText(r,'companyDescription'),r.descriptionSource==='company_site'?t('companySiteNote'):t('editorialNote')):''}${r.about?`<details class="registration-details"><summary>${t('camxIntro')}</summary>${camxSection(r)}</details>`:''}${r.exhibit2026?section(t('exhibit'),profileText(r,'exhibit2026')):''}${r.award2026?section(t('award2026Detail'),profileText(r,'award2026'),t(r.awardStatus==='winner'?'winnerNote':'awardCandidateNote')):''}${r.direction?section(t('latest'),profileText(r,'direction'),t('latestNote')):''}${section(t('dataStatus'),verificationText)}<div class="links"><h4>${t('detailSources')}</h4>${links}</div></div>`;
 }
 function applyFilter(){state.shown=PAGE_SIZE;renderFilters();renderList();if(state.selected&&!filtered().some(r=>keyFor(r)===state.selected))closeDetail()}
 function selectRecord(key,updateHash=true){state.selected=key;document.querySelectorAll('.company-card').forEach(c=>c.classList.toggle('selected',c.dataset.key===key));renderDetail();if(updateHash)history.replaceState(null,'',`#company=${encodeURIComponent(key)}`);if(matchMedia('(max-width: 700px)').matches)$('#detail-panel').scrollTop=0}
-document.querySelectorAll('[data-featured]').forEach(button=>button.addEventListener('click',()=>{const key=button.dataset.featured;const record=state.records.find(r=>keyFor(r)===key);if(!record)return;state.market='전체';state.segment='전체';state.scope='all';state.query=record.name;$('#search-input').value=record.name;applyFilter();selectRecord(key);$('#database').scrollIntoView({behavior:'smooth',block:'start'})}));
-$('#show-prior').addEventListener('click',()=>{state.market='전체';state.segment='전체';state.scope='prior';state.query='';$('#search-input').value='';applyFilter();$('#database').scrollIntoView({behavior:'smooth',block:'start'})});
+document.querySelectorAll('[data-featured]').forEach(button=>button.addEventListener('click',()=>{const key=button.dataset.featured;const record=state.records.find(r=>keyFor(r)===key);if(!record)return;state.market='전체';state.segment='전체';state.scope='all';state.product='';state.query=record.name;$('#search-input').value=record.name;applyFilter();selectRecord(key);$('#database').scrollIntoView({behavior:'smooth',block:'start'})}));
+$('#show-prior').addEventListener('click',()=>{state.market='전체';state.segment='전체';state.scope='prior';state.product='';state.query='';$('#search-input').value='';applyFilter();$('#database').scrollIntoView({behavior:'smooth',block:'start'})});
 function closeDetail(){state.selected=null;renderDetail();document.querySelectorAll('.company-card').forEach(c=>c.classList.remove('selected'));history.replaceState(null,'',location.pathname+location.search)}
-async function loadData(){try{const [response,translations,summaries]=await Promise.all([fetch('data/research.json?v=20260922-db'),fetch('data/translations.json?v=20260922-db'),fetch('data/about_summaries.json?v=20260922-db')]);if(!response.ok||!translations.ok||!summaries.ok)throw Error(t('loadError'));state.records=await response.json();state.translations=await translations.json();state.aboutSummaries=await summaries.json();
+async function loadData(){try{const [response,translations,summaries]=await Promise.all([fetch('data/research.json?v=20260925-db'),fetch('data/translations.json?v=20260925-db'),fetch('data/about_summaries.json?v=20260925-db')]);if(!response.ok||!translations.ok||!summaries.ok)throw Error(t('loadError'));state.records=await response.json();state.translations=await translations.json();state.aboutSummaries=await summaries.json();
   $('#stat-all').textContent=state.records.filter(r=>r.id).length.toLocaleString(state.lang==='ko'?'ko-KR':'en-US');$('#stat-report').textContent=state.records.filter(r=>r.priorAttendance).length;$('#stat-match').textContent=state.records.filter(r=>r.priorAttendance&&r.id).length;applyStaticLanguage();applyFilter();const key=decodeURIComponent(location.hash.replace(/^#company=/,''));if(key&&state.records.some(r=>keyFor(r)===key))selectRecord(key,false)
 }catch(e){$('#result-count').textContent=t('loadError');$('#company-list').innerHTML=`<div class="no-results">${escapeHtml(e.message)} ${t('refresh')}</div>`}}
 $('#market-filters').addEventListener('click',e=>{const b=e.target.closest('[data-market]');if(b){state.market=b.dataset.market;applyFilter()}});
 $('#segment-filters').addEventListener('click',e=>{const b=e.target.closest('[data-segment]');if(b){state.segment=b.dataset.segment;applyFilter()}});
 document.querySelectorAll('[data-scope]').forEach(b=>b.addEventListener('click',()=>{state.scope=b.dataset.scope;applyFilter()}));
+$('#product-filter').addEventListener('change',e=>{state.product=e.target.value;applyFilter()});
+$('#sort-select').addEventListener('change',e=>{state.sort=e.target.value;renderList()});
+document.querySelectorAll('[data-view]').forEach(b=>{if(b.tagName==='BUTTON')b.addEventListener('click',()=>{state.view=b.dataset.view;$('.results-layout').dataset.view=state.view;document.querySelectorAll('button[data-view]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.view===state.view)))})});
+$('#export-csv').addEventListener('click',()=>{
+ const rows=filtered();if(!rows.length){alert(t('exportEmpty'));return}
+ const cell=v=>'"'+String(v??'').replace(/^[=+@-]/,"'$&").replace(/"/g,'""')+'"';
+ const header=state.lang==='ko'?['업체명','부스','분야','제품 분류','회사 소개','2026 수상','홈페이지']:['Company','Booth','Fields','Product categories','Company profile','2026 award','Website'];
+ const lines=[header,...rows.map(r=>[r.name,boothText(r.booth),[...r.markets,...r.segments].map(label).join(' / '),r.categories.map(categoryText).join(' / '),profileText(r,'companyDescription')||profileText(r,'about'),r.award2026?profileText(r,'award2026'):'',r.companySource||r.website])];
+ const url=URL.createObjectURL(new Blob(['\ufeff'+lines.map(row=>row.map(cell).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='CAMX-2026-exhibitors.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
 $('#search-input').addEventListener('input',e=>{state.query=e.target.value;applyFilter()});
-$('#clear-button').addEventListener('click',()=>{state.query='';state.market='전체';state.segment='전체';state.scope='all';$('#search-input').value='';applyFilter();$('#search-input').focus()});
+$('#clear-button').addEventListener('click',()=>{state.query='';state.market='전체';state.segment='전체';state.scope='all';state.product='';$('#search-input').value='';applyFilter();$('#search-input').focus()});
 $('#more-button').addEventListener('click',()=>{state.shown+=PAGE_SIZE;renderList()});
 $('#company-list').addEventListener('click',e=>{const c=e.target.closest('[data-key]');if(c)selectRecord(c.dataset.key)});
 $('#detail-panel').addEventListener('click',e=>{if(e.target.closest('.detail-close'))closeDetail();const b=e.target.closest('[data-favorite]');if(b){const key=b.dataset.favorite;if(state.favorites.has(key))state.favorites.delete(key);else state.favorites.add(key);localStorage.setItem('camx-favorites',JSON.stringify([...state.favorites]));renderFilters();renderDetail();if(state.scope==='favorite')renderList()}});
